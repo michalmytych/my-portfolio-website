@@ -1,0 +1,38 @@
+.not-found-sect{
+    margin-top: 2rem;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.err-404-header{
+    margin-top: 1.5rem;
+}
+
+.err-404-parag, .err-404-header{
+    text-align: center;
+}
+
+.err-404-icon{
+    margin: 0 auto;
+    position: relative;
+    left: 34%;
+    max-width: 30%;
+    transition: 0.7s;
+}
+
+.err-404-icon:hover{
+    transform: rotateZ(9deg);
+}
+
+@media (max-width: 1100px) {
+    .not-found-sect{
+        box-sizing: border-box;
+        margin-top: 2rem;
+        width: 97%;
+    }
+    
+    .err-404-parag, .err-404-header{
+        padding-top: 1rem;
+        text-align: center;
+    }
+}

@@ -1,0 +1,92 @@
+.home-sect {
+    margin-top: 2rem;
+    text-align: center;
+    padding: 4rem;
+    padding-top: 5rem;
+}
+
+.dev-name {
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    padding: 0.1rem;
+    letter-spacing: 4px;
+}
+
+.biggest-header {
+    font-size: 6rem;
+    padding-top: 0.9rem;
+    margin: 0.5rem;
+    box-sizing: border-box;
+}
+
+.guide-text {
+    color: white;
+    font-size: 1.1rem;
+    padding: 0.1rem;
+}
+
+.guide-text,
+.guide-btn {
+    font-family: 'Work Sans', sans-serif;
+}
+
+.dev-name,
+.biggest-header,
+.guide-text {
+    text-shadow: 2px 1px 3px rgba(0, 0, 0, 0.45);
+}
+
+.guide-btn {
+    font-weight: bold;
+    font-size: inherit;
+    padding: 0;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.biggest-header {
+    animation-duration: 2s;
+    animation-name: slidein;
+}
+
+.biggest-header {
+    animation-duration: 1s;
+    animation-name: slidein;
+    animation-timing-function: cubic-bezier(1, 0, 0, 1);
+}
+
+
+@media (max-width: 1000px) {
+    .home-sect {
+        padding-top: 0.5rem;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 800px) {
+    .biggest-header {
+        font-size: 4rem;
+        margin-left: 0;
+        margin-right: 0;
+        line-height: 1.08;
+    }
+
+    .home-sect {
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .biggest-header {
+        font-size: 3.6rem;
+    }
+
+    .home-sect {
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.95rem;
+    }
+}

@@ -1,0 +1,87 @@
+.proj-sect {
+    width: 70%;
+    margin: 0 auto;
+    padding: 0.6rem;
+    padding-top: 1rem;
+}
+
+.proj-container {
+    padding-top: 0.5rem;
+    padding-left: 2rem;
+}
+
+.skills-list-label{
+    padding-bottom: 0;
+    margin-bottom: 0;
+    font-size: 1.2rem;
+}
+
+.stack-list,
+.proj-decrpt{
+    margin-top: 0.8rem;
+    text-align: left;
+}
+
+.github-link-figure{
+    margin-bottom: 1.2rem;
+}
+
+.smaller-github-ico{
+    position: relative;
+    top: 10px;
+    right: 3px;
+    max-width: 2rem;
+}
+
+figcaption,
+figure {
+    padding: 0rem;
+    margin: 0rem;
+}
+
+.proj-illustr-wrap{
+    float: right;
+    top: 0;
+}
+
+.proj-img{
+    margin-top: 2rem;
+    max-height: 21rem;
+    transition: 0.4s;
+    opacity: 0.85;
+}
+
+.proj-img:hover{
+    opacity: 1;
+}
+
+.proj-decrpt-wrap{
+    margin-right: 0.4rem;
+}
+
+@media (max-width: 800px) {
+    .proj-container{
+        padding-left: 0;
+    }
+
+    .proj-sect {
+        width: 99%;
+        padding: 0.3rem;
+    }
+
+    .proj-img:hover{
+        opacity: 1;
+    }    
+    
+    .proj-illustr-wrap{
+        max-width: 10rem;
+        float: none;
+        position: relative;
+    }
+    
+    .proj-img{
+        margin-top: 1rem;
+        max-width: 16rem;
+        opacity: 1;
+    }
+}

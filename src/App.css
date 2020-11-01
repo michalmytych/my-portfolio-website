@@ -1,0 +1,124 @@
+.navbar {
+    margin: 0;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 21%, rgba(0, 0, 0, 0) 100%);
+}
+
+.hamburger{
+    display: none;
+}
+
+.nav-list {
+    list-style: none;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.nav-list-el {
+    display: inline-block;
+}
+
+.nav-list-el,
+.nav-list,
+.navbar {
+    padding: 0.5rem;
+}
+
+.nav-link:focus{
+    color: white;
+    border-bottom: 1px solid white;
+}
+
+.footer-bar {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    padding: 0;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-evenly;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8631827731092436) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.footer-link {
+    padding: 0.7rem;
+}
+
+.footer-links-wrapper {
+    width: 25%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.linked_icon {
+    max-height: 3.5rem;
+}
+
+.github_icon {
+    max-height: 2.5rem;
+    padding-top: 0.62rem;
+    padding-left: 1.5rem;
+}
+
+.github_icon,
+.linked_icon {
+    transition: 0.3s;
+    vertical-align: middle;
+    -webkit-filter: drop-shadow(2px 5px 5px #222);
+    filter: drop-shadow(3px 5px 5px #222);
+}
+
+.github_icon:hover,
+.linked_icon:hover {
+    transform: scale(1.2);
+}
+
+.github_icon:active,
+.linked_icon:active {
+    transition: 0.2s;
+    transform: scale(1.4);
+}
+
+
+@media (max-width: 1000px) {
+    .nav-list {
+        width: 88%;
+    }
+
+    .footer-links-wrapper {
+        width: 40%;
+    }
+
+    .footer-bar{
+        background: none;
+        position: absolute;
+    }
+
+    .linked_icon {
+        max-height: 2.5rem;
+    }
+    
+    .github_icon {
+        max-height: 1.8rem;
+        padding-top: 0.52rem;
+    }
+}
+
+@media (max-width: 800px) {
+    .footer-links-wrapper {
+        width: 100%;
+    }
+
+    .navbar{
+        display: none;
+    }
+
+    .hamburger{
+        display: block;
+    }
+}

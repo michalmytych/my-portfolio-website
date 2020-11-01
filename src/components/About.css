@@ -1,0 +1,23 @@
+.about-sect {
+    margin: 0 auto;
+    padding: 2rem;
+    padding-top: 2rem;
+    width: 69%;
+}
+
+.epi-link{
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+}
+
+
+@media (max-width: 1000px) {
+    .about-sect{
+        padding: 0;
+        width: 99%;
+    }
+
+    #about_container{
+        text-align: left;
+    }
+}
