@@ -13,9 +13,10 @@
 }
 
 .biggest-header {
-    font-size: 6rem;
-    padding-top: 0.9rem;
-    margin: 0.5rem;
+    position: relative;
+    left: -0.6rem;
+    margin-top: 1.8rem;
+    margin-bottom: 1.5rem;
     box-sizing: border-box;
 }
 
@@ -60,18 +61,28 @@
 
 @media (max-width: 1000px) {
     .home-sect {
+        width: 100%;
+        box-sizing: border-box;
         padding-top: 0.5rem;
         padding-left: 0;
         padding-right: 0;
+    }
+    
+    .biggest-header {
+        width: 94%;
+        position: relative;
+        left: 0.3rem;
     }
 }
 
 @media (max-width: 800px) {
     .biggest-header {
-        font-size: 4rem;
-        margin-left: 0;
-        margin-right: 0;
-        line-height: 1.08;
+        width: 100%;
+        text-align: center;
+        margin-top: 1.4rem;
+        margin-bottom: 0;
+        position: relative;
+        left: -0.35rem;
     }
 
     .home-sect {
@@ -81,12 +92,22 @@
 
 @media (max-width: 600px) {
     .biggest-header {
-        font-size: 3.6rem;
+        width: 110%;
+        margin-top: 1.4rem;
+        position: relative;
+        left: -0.9rem;
     }
 
     .home-sect {
         text-align: center;
         padding: 1rem;
         font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .biggest-header {
+        width: 120%;
+        left: -1.1rem;
     }
 }
