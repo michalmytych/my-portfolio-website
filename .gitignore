@@ -24,7 +24,10 @@ yarn-error.log*
 
 # production build files
 build/
+
+# npm downloaded packages
 node_modules/
+/node_modules
 
 # firebase deployment files
 firebase.json
