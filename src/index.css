@@ -26,7 +26,8 @@ section {
 }
 
 .page-blur {
-    backdrop-filter: blur(7px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     background-color: rgba(0, 0, 0, 0.65);
     position: fixed;
     width: 100%;

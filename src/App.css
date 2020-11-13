@@ -16,19 +16,10 @@
     justify-content: space-evenly;
 }
 
-.nav-list-el {
-    display: inline-block;
-}
-
 .nav-list-el,
 .nav-list,
 .navbar {
     padding: 0.5rem;
-}
-
-.nav-link:focus{
-    color: white;
-    border-bottom: 1px solid white;
 }
 
 .footer-bar {

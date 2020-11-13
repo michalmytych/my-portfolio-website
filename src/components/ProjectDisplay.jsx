@@ -1,5 +1,5 @@
 // React
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 
 // React-Router
 import { withRouter } from 'react-router-dom';

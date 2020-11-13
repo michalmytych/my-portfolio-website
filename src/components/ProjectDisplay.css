@@ -45,14 +45,17 @@ figure {
 }
 
 .proj-img{
+    position: relative;
+    right: -1.6rem;
     margin-top: 2rem;
     max-height: 21rem;
-    transition: 0.4s;
-    opacity: 0.85;
+    transition: 0.45s;
+    opacity: 0.75;
 }
 
 .proj-img:hover{
     opacity: 1;
+    transform: translateX(9px);
 }
 
 .proj-decrpt-wrap{

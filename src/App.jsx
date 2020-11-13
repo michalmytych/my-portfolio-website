@@ -12,6 +12,7 @@ import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Skills from './components/Skills';
 import ProjectDisplay from './components/ProjectDisplay';
+import NavigationLink from './components/NavigationLink';
 
 // Static & Assets
 import './App.css';
@@ -92,11 +93,11 @@ export default class App extends Component {
 
         <nav className="navbar">
           <ul className="nav-list">
-            <li className="nav-list-el"><NavLink className="nav-link" to={'/'}>Główna</NavLink></li>
-            <li className="nav-list-el"><NavLink className="nav-link" to={'/about'}>O mnie</NavLink></li>
-            <li className="nav-list-el"><NavLink className="nav-link" to={'/portfolio'}>Portfolio</NavLink></li>
-            <li className="nav-list-el"><NavLink className="nav-link" to={'/skills'}>Umiejętności</NavLink></li>
-            <li className="nav-list-el"><NavLink className="nav-link" to={'/contact'}>Kontakt</NavLink></li>
+            <NavigationLink title="Główna" go_to={'/'}/>
+            <NavigationLink title="O mnie" go_to={'/about'}/>
+            <NavigationLink title="Portfolio" go_to={'/portfolio'}/>
+            <NavigationLink title="Umiejętności" go_to={'/skills'}/>
+            <NavigationLink title="Kontakt" go_to={'/contact'}/>
           </ul>
         </nav>
 

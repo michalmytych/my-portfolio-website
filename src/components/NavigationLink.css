@@ -1,0 +1,20 @@
+.nav-list-el {
+    display: inline-block;
+}
+
+.nav-link{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.nav-link:hover{
+    color: white;
+    padding-bottom: 5px;
+    border-bottom: 1px solid white;
+}
+
+.nav-link:active{
+    transition: 0.3s;
+    color: white;
+    padding-bottom: 0px;
+    border-bottom: 5px solid rgba(255, 255, 255, 0.692);
+}

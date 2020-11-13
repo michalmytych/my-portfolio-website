@@ -26,13 +26,16 @@ class Portfolio extends Component {
                       
                         <ul className="portfolio-list">
                             {this.props.projects.map(item => (
-                                <li className="portfolio-list-li">
+                                <li 
+                                    key={item.id} 
+                                    className="portfolio-list-li">
                                     <Link
                                         key={item.id} 
                                         to={`/portfolio/project=${item.id}`}>
                                         <div className="short-descrpt">
                                             <div className="proj-title-short">
                                                 <img 
+                                                    alt="Ikona sześcianu."
                                                     className="box-icon"
                                                     src={box_icon}>                                                    
                                                 </img>
