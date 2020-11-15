@@ -24,8 +24,14 @@
 
 @media (max-width: 700px) {
     .about-sect{
-        margin-top: 0;
+        margin-top: 3rem;
         padding: 0;
         width: 90%;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-sect{
+        margin-top: 1rem;
     }
 }

@@ -51,6 +51,7 @@ figure {
     max-height: 21rem;
     transition: 0.45s;
     opacity: 0.75;
+    margin-bottom: 1rem;
 }
 
 .proj-img:hover{
@@ -62,14 +63,21 @@ figure {
     margin-right: 0.4rem;
 }
 
+@media (max-width: 1100px) {
+    .proj-img{
+        position: static;
+    }
+}
+
 @media (max-width: 800px) {
     .proj-container{
         padding-left: 0;
     }
 
     .proj-sect {
-        width: 99%;
+        width: 90%;
         padding: 0.3rem;
+        margin-top: 3rem;
     }
 
     .proj-img:hover{
@@ -81,10 +89,12 @@ figure {
         float: none;
         position: relative;
     }
-    
+
     .proj-img{
+        position: static;
+        max-height: unset;
         margin-top: 1rem;
-        max-width: 16rem;
+        max-width: 85vw;
         opacity: 1;
     }
 }
