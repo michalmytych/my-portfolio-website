@@ -41,8 +41,8 @@ export default class App extends Component {
       projects: [
         {
             id: 1,
-            title: "Pierwszy projekt",
-            description: "Opis pierwszego projektu, jakiś dłuższy tnkjasjdkasjk jkkjasdkjasjkdh asjkdhkjh askjdh kj kjsakjdajks dhkjashdkjdkja kjskja dkjhkjj jjjjjjjjjjjj  asdkja jkdasjk kjdkj ajkdjk ajk kakjekst, pragraf i tka dalej i tak dalej.",
+            title: "Lorem ipsum dolor",
+            description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error ducimus itaque fugiat nostrum? Deserunt quasi necessitatibus quae perspiciatis, ipsam molestiae!",
             image: ProjImage_001,
             thumbnail: ProjThumb_001,
             github: 'https://github.com/michalmytych/Movie-Rater',
@@ -50,8 +50,8 @@ export default class App extends Component {
         },
         {
             id: 2,
-            title: "Jakiś drugi projekt",
-            description: "To jest opis drugiego projektu, też jakiś taki przydługawy opis, jakiś paragraf i tak dalej.",
+            title: "Lorem ipsum dolor",
+            description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error ducimus itaque fugiat nostrum? Deserunt quasi necessitatibus quae perspiciatis, ipsam molestiae!",
             image: ProjImage_002,
             thumbnail: ProjThumb_002,
             github: 'https://github.com/michalmytych/Simplest-Twitter-Django-React',

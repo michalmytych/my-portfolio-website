@@ -14,7 +14,7 @@
     padding: 0;
 }
 
-.portfolio-list-li{
+.portfolio-list-li {
     transition: 0.5s;
     margin: 1rem;
     background-color: rgba(99, 99, 99, 0.438);
@@ -59,6 +59,7 @@
 
 @media (max-width: 1000px) {
     .portfolio-sect {
+        margin-top: 2rem;
         width: 99%;
     }
 

@@ -144,11 +144,19 @@ input{
     border-top: solid 2px white;
 }
 
+@media (max-width: 1100px) {
+    .contact-sect {
+        padding-top: 2rem;
+        width: 80%;
+    }
+}
+
 
 @media (max-width: 800px) {
     .contact-sect {
+        margin-top: 3rem;
         padding: 0;
-        width: 99%;
+        width: 85%;
     }
 
     .contact-sect-text {
@@ -180,5 +188,13 @@ input{
     .submit-btn:focus,
     .hide-alert-btn:focus {
         outline: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-sect {
+        margin-top: 0;
+        padding-top: 2rem;
+        width: 80%;
     }
 }

@@ -37,12 +37,12 @@
 @media (max-width: 1000px) {
     .skills-sect {
         padding-bottom: 1.5rem;
-        width: 99%;
+        width: 90%;
         margin: 0 auto;
     }
 
     #skills_container{
-        text-align: left;
+        text-align: center;
     }
 
     .skills-list {
@@ -68,11 +68,25 @@
     }
 }
 
+@media (max-width: 800px) {
+    .skills-sect {
+        margin-top: 3rem;
+    }
+}
+
 @media (max-width: 700px) {
+    .skills-sect {
+        margin-top: 3rem;
+    }
+
     .skills-list-elem {
         padding: 0.2rem;
         padding-bottom: 0.5rem;
         width: 30%;
+    }
+
+    #skills_container{
+        text-align: left;
     }
 
     .skill-icon {

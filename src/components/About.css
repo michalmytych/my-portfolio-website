@@ -10,14 +10,22 @@
     font-weight: bold;
 }
 
-
 @media (max-width: 1000px) {
     .about-sect{
+        margin-top: 3rem;
         padding: 0;
-        width: 99%;
+        width: 80%;
     }
 
     #about_container{
         text-align: left;
+    }
+}
+
+@media (max-width: 700px) {
+    .about-sect{
+        margin-top: 0;
+        padding: 0;
+        width: 90%;
     }
 }
