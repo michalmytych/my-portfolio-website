@@ -93,7 +93,7 @@ class Skills extends Component {
                     {this.state.skills.map(item => (
                             <li 
                                 className="skills-list-elem"
-                                key={item.id}>
+                                key={item.id}>                                
                                 <img
                                     className="skill-icon"
                                     src={item.icon} 

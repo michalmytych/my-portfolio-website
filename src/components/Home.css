@@ -47,6 +47,11 @@
     background-color: transparent;
 }
 
+.guide-btn:active,
+.guide-btn:focus {
+    outline: none;
+}
+
 .biggest-header {
     animation-duration: 2s;
     animation-name: slidein;
