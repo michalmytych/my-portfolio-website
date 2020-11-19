@@ -70,4 +70,5 @@ debug.log
 *.mp4
 *.woff
 *.woff2
+.env
 

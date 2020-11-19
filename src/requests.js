@@ -11,8 +11,7 @@ const doQuery = async (q) => {
         headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
-            Authorization: `Bearer aa7683bc098d60a336e80199eb5baa`
-            //${process.env.DATO_CMS_API_TOKEN}`
+            Authorization: `Bearer ${process.env.DATO_CMS_API_TOKEN}`
         },
         body: JSON.stringify({ query: q })
     }).then(res => res.json());
