@@ -1,0 +1,9 @@
+{
+    "name": "Michal Mytych Web Developer Portfolio",
+    "description": "Strona-portfolio z moimi projektami i umiejetnosciami.",
+    "datocmsProjectId": "36572",
+    "deploymentType": "static",
+    "buildCommand": "npm run build",
+    "buildDirectory": "build",
+    "datocmsApiTokenEnvName": "DATO_CMS_API_TOKEN"
+}
