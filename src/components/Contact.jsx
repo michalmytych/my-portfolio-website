@@ -5,6 +5,7 @@ import React, { Component, Fragment } from 'react'
 import { withRouter } from 'react-router-dom';
 
 // Static & Assets
+import ReactMarkdown from "react-markdown";
 import './Contact.css';
 
 
@@ -74,9 +75,7 @@ class Contact extends Component {
                     <div className="gradient-line animate__animated animate__fadeIn"></div>
 
                     <p className="contact-sect-text">
-                        Przy użyciu tego formularza możesz wysłać mi wiadomość
-                        - podaj proszę swój e-mail, bym mógł na nią odpowiedzieć.
-                        Postaram się to zrobić najszybciej jak to będzie możliwe. 
+                        <ReactMarkdown source={this.props.content} />
                     </p>
                     <form className="contact-form">
                         <div>

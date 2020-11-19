@@ -17,18 +17,16 @@ import NavigationLink from './components/NavigationLink';
 // Static & Assets
 import './App.css';
 import {
-  /* Icons */
   GithubIcon,
-  LinkedInIcon,
-
-  /* Project thumnails */
-  ProjThumb_001,
-  ProjThumb_002,
-
-  /* Project images */
-  ProjImage_001,
-  ProjImage_002,
+  LinkedInIcon
 } from './components/assets';
+
+// DatoCMS GraphQL requests
+import queries from './queries';
+import requests from './requests';
+
+// Burger toggling animation
+import burger from './burger';
 
 
 
@@ -36,55 +34,47 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // PROJECTS
+      projects: [],
+      skills: [],
+      pages: {}
+    }
+  }
 
-      projects: [
-        {
-            id: 1,
-            title: "Lorem ipsum dolor",
-            description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error ducimus itaque fugiat nostrum? Deserunt quasi necessitatibus quae perspiciatis, ipsam molestiae!",
-            image: ProjImage_001,
-            thumbnail: ProjThumb_001,
-            github: 'https://github.com/michalmytych/Movie-Rater',
-            stack: "React, Django, Python, Docker"
-        },
-        {
-            id: 2,
-            title: "Lorem ipsum dolor",
-            description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error ducimus itaque fugiat nostrum? Deserunt quasi necessitatibus quae perspiciatis, ipsam molestiae!",
-            image: ProjImage_002,
-            thumbnail: ProjThumb_002,
-            github: 'https://github.com/michalmytych/Simplest-Twitter-Django-React',
-            stack: "React, Django, Python, Docker"
-        }
-      ]
+  async getProjectsList() {
+    let results = await requests.doQuery(queries.GET_ALL_PROJECTS_QUERY);
+
+    if (results.data) {
+      let data = results.data;
+      this.setState({ projects:  data.allProjects});
+    }
+  }
+
+  async getPagesContent() {
+    let results = await requests.doQuery(queries.GET_PAGES_TEXT_CONTENT_QUERY);
+
+    if (results.data) {
+      let data = results.data;
+      this.setState({ pages:  data.page});
+    }
+  }
+
+  async getSkillsList() {
+    let results = await requests.doQuery(queries.GET_ALL_SKILLS_QUERY);
+
+    if (results.data) {
+      let data = results.data;
+      this.setState({ skills:  data.allSkills});
     }
   }
 
   toggleBurger = () => {
-    const burger_menu = document.getElementById('burger_menu');
-    const burger_icon = document.getElementById('burger_icon');
-    const fadeOut = async () => {
-      await new Promise(resolve => setTimeout(resolve, 900))
-      burger_menu.style.display = "none"
-    };
-    
-    if (burger_menu.style.display === "block") {
-      burger_menu.classList.add('animate__fadeOut');
-      fadeOut();
-    }
-    else{
-      if (burger_menu.classList.contains('animate__fadeOut')){
-        burger_menu.classList.remove('animate__fadeOut');
-      }
-      burger_menu.style.display = "block";
-    }
-    if (burger_icon.classList.contains('open')){
-      burger_icon.classList.remove('open');
-    }
-    else{
-      burger_icon.classList.add('open');
-    }
+    burger.toggleBurgerMenu();
+  }
+
+  componentDidMount() {
+    this.getPagesContent();
+    this.getProjectsList();
+    this.getSkillsList();
   }
 
   render() {
@@ -140,21 +130,23 @@ export default class App extends Component {
 
           <Route 
             exact={true} 
-            path='/about' 
-            component={About} 
-          />
+            path='/about'> 
+            <About content={this.state.pages.about}/>
+          </Route>
 
           <Route 
             exact={true} 
-            path='/skills' 
-            component={Skills} 
-          />
+            path='/skills'> 
+            <Skills 
+              content={this.state.pages.skills}
+              skills={this.state.skills}/>
+          </Route>
 
           <Route 
             exact={true} 
-            path='/contact' 
-            component={Contact} 
-          />
+            path='/contact'>
+            <Contact content={this.state.pages.contact}/>
+          </Route>
           
           <Route 
             exact={true} 

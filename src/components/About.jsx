@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 
 // Static & Assets
+import ReactMarkdown from "react-markdown";
 import './About.css';
 
 
@@ -28,12 +29,7 @@ class About extends Component {
                 <div className="gradient-line animate__animated animate__fadeIn"></div>
 
                 <p id="about_container">
-                    Studiuję <a className="epi-link" href={this.state.epi_link} target="_blank" rel="noopener noreferrer">Elektroniczne Przetwarzanie Informacji</a> na Uniwersytecie Jagiellońskim w Krakowie. 
-                    Na początku studiów programowanie stało się jedną z moich najsilniejszych zajawek. Rozwijam się w
-                    tym zakresie bezustannie, zarówno poprzez realizowanie programu studiów, jak i na własną rękę.
-                    Spośród wszystkich dziedzin programowania najbardziej zainteresowałem się Pythonem i programowaniem
-                    backendowych aplikacji webowych, nie są mi jednak obce i technologie frontendowe.
-                    Mam ambicje i lubię uczyć się nowych rzeczy. Z chęcią podejmę się nowych wyzwań w branży IT.
+                    <ReactMarkdown source={this.props.content} />
                 </p>
             </section>
         )

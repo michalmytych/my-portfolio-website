@@ -12,6 +12,7 @@ import { box_icon
 
 class Portfolio extends Component {
     render() {
+        console.log(this.props.projects);
         return (
             <section className="portfolio-sect animate__animated animate__fadeIn">
                 <button 
@@ -45,7 +46,7 @@ class Portfolio extends Component {
                                         </div>
                                         <img
                                             className="proj-img-ill" 
-                                            src={item.image} 
+                                            src={item.image.url} 
                                             alt="Mini illustracja projektu.">
                                         </img>                                                                                  
                                     </Link>
