@@ -1,5 +1,3 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
 /node_modules
 /.pnp
@@ -64,4 +62,12 @@ ISSUES.md
 *.log
 debug.log
 
+# My assets
+*.jpg
+*.jpeg
+*.svg
+*.png
+*.mp4
+*.woff
+*.woff2
 
