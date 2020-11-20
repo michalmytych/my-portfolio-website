@@ -14,6 +14,10 @@ body {
     overflow-y: scroll;
 }
 
+.top-const-margin {
+  margin-top: 1.8rem;
+}
+
 .biggest-header {
   width: 70%;
   margin: 0 auto;
@@ -64,28 +68,6 @@ main {
     height: 1px;
     margin: 0 auto;
     background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
-}
-
-.back-btn {
-    font-family: 'Work Sans', sans-serif;
-    padding: 0.2rem 0rem 0.2rem 0rem;
-    font-weight: bold;
-    background-color: transparent;
-    color: rgb(175, 175, 175);
-    font-size: 1.1rem;
-    cursor: pointer;
-    border: none;
-    transition: 0.2s;
-    letter-spacing: 2px;
-    margin-bottom: 1rem;
-}
-
-.back-btn:hover {
-    color: white;
-}
-
-.back-btn:active {
-    outline: none;
 }
 
 a,
