@@ -43,6 +43,7 @@ section {
 /* REMOVES DEFAULT BROWSER-SPECIFIC STYLING: */
 input, button, textarea{
   -webkit-appearance: none;
+  border-radius: 0;
   -webkit-border-radius: 0;
 }
 

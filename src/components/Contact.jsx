@@ -4,6 +4,9 @@ import React, { Component, Fragment } from 'react'
 // React-Router
 import { withRouter } from 'react-router-dom';
 
+// EmailJS
+import emailjs from 'emailjs-com';
+
 // Components
 import Alert from './Alert';
 
@@ -55,7 +58,7 @@ class Contact extends Component {
                             ?
                             <ReactMarkdown source={this.props.content} />
                             :
-                            <p>Brak treści.</p>
+                            <span style={{textAlign: 'center'}}>Brak treści.</span>
                         }
                     </p>
                     <form className="contact-form">
@@ -149,7 +152,7 @@ class Contact extends Component {
     }
 
     sendForm(templateId, variables) {
-        window.emailjs.send(
+        emailjs.send(
             'service_mp63qqg', templateId,
             variables, 'user_HJgZoeBW9LgFmoV1EUhWP'
         ).then(res => {

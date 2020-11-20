@@ -62,17 +62,3 @@ class Portfolio extends Component {
 }
 
 export default withRouter(Portfolio);
-
-
-/*
-                                    <li
-                                        className="project-box-elem"
-                                        key={item.id}>
-                                        <h4>
-                                            {item.title}
-                                        </h4>
-                                        <p className="proj-descrpt-p">
-                                            {item.description.slice(0, 40) + "..."}
-                                        </p>
-*/
-

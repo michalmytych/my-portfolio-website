@@ -5,5 +5,5 @@
     "deploymentType": "static",
     "buildCommand": "npm run build",
     "buildDirectory": "build",
-    "datocmsApiTokenEnvName": "DATO_CMS_API_TOKEN"
+    "datocmsApiTokenEnvName": "REACT_APP_DATO_CMS_API_TOKEN"
 }

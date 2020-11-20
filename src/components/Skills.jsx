@@ -23,7 +23,7 @@ class Skills extends Component {
                         ?
                         <ReactMarkdown source={this.props.content} />
                         :
-                        <p>Brak treści.</p>
+                        <span style={{textAlign: 'center'}}>Brak treści.</span>
                     }
                 </p>
                 <ul className="skills-list">
