@@ -6,7 +6,7 @@ import queries from "./queries";
 
 const doQuery = async (q) => {
   try {
-    return await fetch('https://graphql.datocms.com/'   /* `${process.env.API_URL}` */, {
+    return await fetch(`${process.env.API_URL}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

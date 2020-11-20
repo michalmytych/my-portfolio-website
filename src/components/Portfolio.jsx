@@ -15,18 +15,19 @@ class Portfolio extends Component {
         console.log(this.props.projects);
         return (
             <section className="portfolio-sect animate__animated animate__fadeIn">
-                <button 
-                className="back-btn"
-                onClick={() => (this.props.history.push("/"))}>
-                    Wróć
-                </button>
 
                 <Switch>
                     <Route>
+                        <h1 className="top-const-margin">Moje portfolio</h1>
                         <div className="gradient-line animate__animated animate__fadeIn"></div>
                       
                         <ul className="portfolio-list">
-                            {this.props.projects.map(item => (
+                            {
+                            this.props.projects.length===0
+                            ?
+                            <p>Brak treści</p>
+                            :
+                            this.props.projects.map(item => (
                                 <li 
                                     key={item.id} 
                                     className="portfolio-list-li">

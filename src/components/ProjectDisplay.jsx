@@ -22,9 +22,10 @@ class ProjectDisplay extends Component {
         let projectId = parseInt(this.props.match.params.projectId);
         let PROJECT = projects.filter(
             function(proj) {
-                return (proj.id === projectId)
+                return (parseInt(proj.id) === projectId)
             }
         )
+        console.log("DEBUG: ", this.state.project);
         this.setState({
             project: PROJECT[0]
         })
@@ -33,11 +34,6 @@ class ProjectDisplay extends Component {
     render() {
         return (
             <section className="proj-sect animate__animated animate__fadeIn">
-                <button 
-                    className="back-btn"
-                    onClick={() => (this.props.history.push("/portfolio"))}>
-                    Wróć
-                </button>
                 <div className="gradient-line"></div>
                 {this.state.project ?
                 <div className="proj-container">

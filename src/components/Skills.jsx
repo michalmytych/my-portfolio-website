@@ -14,17 +14,17 @@ class Skills extends Component {
     render() {
         return (
             <section className="skills-sect animate__animated animate__fadeIn">
-                <button 
-                className="back-btn"
-                onClick={() => (this.props.history.push("/"))}>
-                    Wróć
-                </button>
-
-                <h1>Moje umiejętności</h1>
+                <h1 className="top-const-margin">Moje umiejętności</h1>
 
                 <div className="gradient-line animate__animated animate__fadeIn"></div>
                 <p id="skills_container">
-                    <ReactMarkdown source={this.props.content} />
+                    {
+                        this.props.content
+                        ?
+                        <ReactMarkdown source={this.props.content} />
+                        :
+                        <p>Brak treści.</p>
+                    }
                 </p>
                 <ul className="skills-list">
                     {

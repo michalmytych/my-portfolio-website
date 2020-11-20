@@ -9,9 +9,9 @@ import { not_found_icon } from './assets';
 export default function NotFound() {
     return (
         <section className="not-found-sect">
-            <h1 className="err-404-header">
+            <h2 className="err-404-header">
                 404 Not Found
-            </h1>
+            </h2>
             <p className="err-404-parag">
                 Niestety nie ma takiego zasobu.
             </p>
