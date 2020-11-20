@@ -13,6 +13,7 @@ import Contact from './components/Contact';
 import Skills from './components/Skills';
 import ProjectDisplay from './components/ProjectDisplay';
 import NavigationLink from './components/NavigationLink';
+import BackButton from './components/BackButton';
 
 // Static & Assets
 import './App.css';
@@ -83,7 +84,7 @@ export default class App extends Component {
 
         <nav className="navbar">
           <ul className="nav-list">
-            <NavigationLink title="Główna" go_to={'/'}/>
+            <NavigationLink title="Główna" go_to={'/home'}/>
             <NavigationLink title="O mnie" go_to={'/about'}/>
             <NavigationLink title="Portfolio" go_to={'/portfolio'}/>
             <NavigationLink title="Umiejętności" go_to={'/skills'}/>
@@ -94,7 +95,7 @@ export default class App extends Component {
         <div id="burger_menu" className="burger-nav animate__animated animate__fadeIn">
           <div className="nav-ul-wrapper">
               <ul className="burger-nav-list">
-                <li className="burger-nav-list-el" onClick={this.toggleBurger}><NavLink to={'/'}>GŁÓWNA</NavLink></li>
+                <li className="burger-nav-list-el" onClick={this.toggleBurger}><NavLink to={'/home'}>GŁÓWNA</NavLink></li>
                 <li className="burger-nav-list-el" onClick={this.toggleBurger}><NavLink to={'/about'}>O MNIE</NavLink></li>
                 <li className="burger-nav-list-el" onClick={this.toggleBurger}><NavLink to={'/portfolio'}>PORTFOLIO</NavLink></li>
                 <li className="burger-nav-list-el" onClick={this.toggleBurger}><NavLink to={'/skills'}>UMIEJĘTNOŚCI</NavLink></li>
@@ -104,9 +105,11 @@ export default class App extends Component {
         </div>
 
         <main>
+          <BackButton />
+
           <Route 
             exact={true} 
-            path='/'>
+            path='/home'>
             <Home />
             <footer className="footer-bar animate__animated animate__fadeIn">
               <div className="footer-links-wrapper">
