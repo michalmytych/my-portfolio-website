@@ -4,6 +4,9 @@ import React, { Component, Fragment } from 'react'
 // React-Router
 import { withRouter } from 'react-router-dom';
 
+// Components
+import Alert from './Alert';
+
 // Static & Assets
 import ReactMarkdown from "react-markdown";
 import './Contact.css';
@@ -35,47 +38,25 @@ class Contact extends Component {
     render() {
         return (
             <Fragment>
-                {this.state.warning ?
-                <div className="dim-block">
-                    <div className="alert-block animate__animated animate__fadeIn">
-                        <div>
-                            {this.state.success ?
-                            <h3>Wysłano</h3>
-                            :
-                            <h3>Niewłaściwa wiadomość</h3>
-                            }
-                        </div>
-                            {this.state.success ?
-                            <p className="alert_text">Dziękuję, postaram się odpowiedzieć Ci jak najszybciej.</p>
-                            :
-                            <p className="alert_text">
-                                Żeby wysłać wiadomość, musisz wypełnić wszystkie pola
-                                formularza.
-                            </p>
-                            }
-
-                            <button className="hide-alert-btn" onClick={this.handleAlertHide}>
-                                OK
-                            </button>
-                        </div>
-                    </div>
+                {this.state.warning
+                ?
+                <Alert handleAlertHide={this.handleAlertHide} success={this.state.success} />   
                 :
                 null}
 
                 <section className="contact-sect animate__animated animate__fadeIn">                
-
-                    <button 
-                    className="back-btn"
-                    onClick={() => (this.props.history.push("/"))}>
-                        Wróć
-                    </button>
-
-                    <h1 className="contact-header">Kontakt</h1>
+                    <h1 className="contact-header top-const-margin">Kontakt</h1>
 
                     <div className="gradient-line animate__animated animate__fadeIn"></div>
 
                     <p className="contact-sect-text">
-                        <ReactMarkdown source={this.props.content} />
+                        {
+                            this.props.content
+                            ?
+                            <ReactMarkdown source={this.props.content} />
+                            :
+                            <p>Brak treści.</p>
+                        }
                     </p>
                     <form className="contact-form">
                         <div>
