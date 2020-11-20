@@ -3,7 +3,7 @@ import React from 'react';
 import { Component } from 'react';
 
 // React-Router
-import { BrowserRouter as Router, NavLink, Route} from 'react-router-dom';
+import { BrowserRouter as Router, NavLink, Route, Redirect } from 'react-router-dom';
 
 // Components
 import Home from './components/Home';
@@ -106,6 +106,9 @@ export default class App extends Component {
 
         <main>
           <BackButton />
+          <Route exact path="/">
+            <Redirect to="/home" />
+          </Route>
 
           <Route 
             exact={true} 
