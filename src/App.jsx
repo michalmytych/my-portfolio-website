@@ -15,6 +15,7 @@ import ProjectDisplay from './components/ProjectDisplay';
 import NavigationLink from './components/NavigationLink';
 import BackButton from './components/BackButton';
 import NotFound from './components/NotFound';
+import Footer from './components/Footer';
 
 // Static & Assets
 import './App.css';
@@ -113,6 +114,7 @@ export default class App extends Component {
               exact={true} 
               path='/home'>
               <Home />
+              <Footer />
             </Route>
 
             <Route 

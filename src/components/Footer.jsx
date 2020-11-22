@@ -5,7 +5,7 @@ import './Footer.css';
 import {
     GithubIcon,
     LinkedInIcon
-} from './components/assets';
+} from './assets';
 
 
 export default function Footer() {
