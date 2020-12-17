@@ -12,20 +12,22 @@ import { box_icon
 
 class Portfolio extends Component {
     render() {
+        console.log(this.props.projects);
         return (
             <section className="portfolio-sect animate__animated animate__fadeIn">
-                <button 
-                className="back-btn"
-                onClick={() => (this.props.history.push("/"))}>
-                    Wróć
-                </button>
 
                 <Switch>
                     <Route>
+                        <h1 className="top-const-margin">Moje portfolio</h1>
                         <div className="gradient-line animate__animated animate__fadeIn"></div>
                       
                         <ul className="portfolio-list">
-                            {this.props.projects.map(item => (
+                            {
+                            this.props.projects.length===0
+                            ?
+                            <p>Brak treści</p>
+                            :
+                            this.props.projects.map(item => (
                                 <li 
                                     key={item.id} 
                                     className="portfolio-list-li">
@@ -45,7 +47,7 @@ class Portfolio extends Component {
                                         </div>
                                         <img
                                             className="proj-img-ill" 
-                                            src={item.image} 
+                                            src={item.image.url} 
                                             alt="Mini illustracja projektu.">
                                         </img>                                                                                  
                                     </Link>
@@ -60,17 +62,3 @@ class Portfolio extends Component {
 }
 
 export default withRouter(Portfolio);
-
-
-/*
-                                    <li
-                                        className="project-box-elem"
-                                        key={item.id}>
-                                        <h4>
-                                            {item.title}
-                                        </h4>
-                                        <p className="proj-descrpt-p">
-                                            {item.description.slice(0, 40) + "..."}
-                                        </p>
-*/
-

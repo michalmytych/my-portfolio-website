@@ -3,7 +3,7 @@ import React from 'react';
 import { Component } from 'react';
 
 // React-Router
-import { BrowserRouter as Router, NavLink, Route} from 'react-router-dom';
+import { BrowserRouter as Router, NavLink, Route, Redirect, Switch } from 'react-router-dom';
 
 // Components
 import Home from './components/Home';
@@ -13,22 +13,18 @@ import Contact from './components/Contact';
 import Skills from './components/Skills';
 import ProjectDisplay from './components/ProjectDisplay';
 import NavigationLink from './components/NavigationLink';
+import BackButton from './components/BackButton';
+import NotFound from './components/NotFound';
 
 // Static & Assets
 import './App.css';
-import {
-  /* Icons */
-  GithubIcon,
-  LinkedInIcon,
 
-  /* Project thumnails */
-  ProjThumb_001,
-  ProjThumb_002,
+// DatoCMS GraphQL requests
+import queries from './queries';
+import requests from './requests';
 
-  /* Project images */
-  ProjImage_001,
-  ProjImage_002,
-} from './components/assets';
+// Burger toggling animation
+import burger from './burger';
 
 
 
@@ -36,55 +32,47 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // PROJECTS
+      projects: [],
+      skills: [],
+      pages: {}
+    }
+  }
 
-      projects: [
-        {
-            id: 1,
-            title: "Lorem ipsum dolor",
-            description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error ducimus itaque fugiat nostrum? Deserunt quasi necessitatibus quae perspiciatis, ipsam molestiae!",
-            image: ProjImage_001,
-            thumbnail: ProjThumb_001,
-            github: 'https://github.com/michalmytych/Movie-Rater',
-            stack: "React, Django, Python, Docker"
-        },
-        {
-            id: 2,
-            title: "Lorem ipsum dolor",
-            description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error ducimus itaque fugiat nostrum? Deserunt quasi necessitatibus quae perspiciatis, ipsam molestiae!",
-            image: ProjImage_002,
-            thumbnail: ProjThumb_002,
-            github: 'https://github.com/michalmytych/Simplest-Twitter-Django-React',
-            stack: "React, Django, Python, Docker"
-        }
-      ]
+  async getProjectsList() {
+    let results = await requests.doQuery(queries.GET_ALL_PROJECTS_QUERY);
+
+    if (results.data) {
+      let data = results.data;
+      this.setState({ projects:  data.allProjects});
+    }
+  }
+
+  async getPagesContent() {
+    let results = await requests.doQuery(queries.GET_PAGES_TEXT_CONTENT_QUERY);
+
+    if (results.data) {
+      let data = results.data;
+      this.setState({ pages:  data.page});
+    }
+  }
+
+  async getSkillsList() {
+    let results = await requests.doQuery(queries.GET_ALL_SKILLS_QUERY);
+
+    if (results.data) {
+      let data = results.data;
+      this.setState({ skills:  data.allSkills});
     }
   }
 
   toggleBurger = () => {
-    const burger_menu = document.getElementById('burger_menu');
-    const burger_icon = document.getElementById('burger_icon');
-    const fadeOut = async () => {
-      await new Promise(resolve => setTimeout(resolve, 900))
-      burger_menu.style.display = "none"
-    };
-    
-    if (burger_menu.style.display === "block") {
-      burger_menu.classList.add('animate__fadeOut');
-      fadeOut();
-    }
-    else{
-      if (burger_menu.classList.contains('animate__fadeOut')){
-        burger_menu.classList.remove('animate__fadeOut');
-      }
-      burger_menu.style.display = "block";
-    }
-    if (burger_icon.classList.contains('open')){
-      burger_icon.classList.remove('open');
-    }
-    else{
-      burger_icon.classList.add('open');
-    }
+    burger.toggleBurgerMenu();
+  }
+
+  componentDidMount() {
+    this.getPagesContent();
+    this.getProjectsList();
+    this.getSkillsList();
   }
 
   render() {
@@ -93,7 +81,7 @@ export default class App extends Component {
 
         <nav className="navbar">
           <ul className="nav-list">
-            <NavigationLink title="Główna" go_to={'/'}/>
+            <NavigationLink title="Główna" go_to={'/home'}/>
             <NavigationLink title="O mnie" go_to={'/about'}/>
             <NavigationLink title="Portfolio" go_to={'/portfolio'}/>
             <NavigationLink title="Umiejętności" go_to={'/skills'}/>
@@ -104,7 +92,7 @@ export default class App extends Component {
         <div id="burger_menu" className="burger-nav animate__animated animate__fadeIn">
           <div className="nav-ul-wrapper">
               <ul className="burger-nav-list">
-                <li className="burger-nav-list-el" onClick={this.toggleBurger}><NavLink to={'/'}>GŁÓWNA</NavLink></li>
+                <li className="burger-nav-list-el" onClick={this.toggleBurger}><NavLink to={'/home'}>GŁÓWNA</NavLink></li>
                 <li className="burger-nav-list-el" onClick={this.toggleBurger}><NavLink to={'/about'}>O MNIE</NavLink></li>
                 <li className="burger-nav-list-el" onClick={this.toggleBurger}><NavLink to={'/portfolio'}>PORTFOLIO</NavLink></li>
                 <li className="burger-nav-list-el" onClick={this.toggleBurger}><NavLink to={'/skills'}>UMIEJĘTNOŚCI</NavLink></li>
@@ -114,60 +102,53 @@ export default class App extends Component {
         </div>
 
         <main>
-          <Route 
-            exact={true} 
-            path='/'>
-            <Home />
-            <footer className="footer-bar animate__animated animate__fadeIn">
-              <div className="footer-links-wrapper">
-                <a 
-                  className="footer-link"
-                  href="https://github.com/michalmytych" 
-                  target="_blank"
-                  rel="noopener noreferrer">
-                    <img className="github_icon" src={GithubIcon} alt="Ikona Github."></img>
-                </a>
-                <a 
-                  className="footer-link"
-                  href="https://www.linkedin.com/in/micha%C5%82-mytych-16b1431a5/" 
-                  target="_blank"
-                  rel="noopener noreferrer">
-                    <img className="linked_icon" src={LinkedInIcon} alt="Ikona Linked-In."></img>
-                </a>
-              </div>
-            </footer>
-          </Route>
+          <BackButton />
 
-          <Route 
-            exact={true} 
-            path='/about' 
-            component={About} 
-          />
+          <Switch>
+            <Route exact path="/">
+              <Redirect to="/home" />
+            </Route>
 
-          <Route 
-            exact={true} 
-            path='/skills' 
-            component={Skills} 
-          />
+            <Route 
+              exact={true} 
+              path='/home'>
+              <Home />
+            </Route>
 
-          <Route 
-            exact={true} 
-            path='/contact' 
-            component={Contact} 
-          />
-          
-          <Route 
-            exact={true} 
-            path='/portfolio'>
-            <Portfolio projects={this.state.projects}/>
-          </Route> 
+            <Route 
+              exact={true} 
+              path='/about'> 
+              <About content={this.state.pages.about}/>
+            </Route>
 
-          <Route 
-            exact={true} 
-            path='/portfolio/project=:projectId'>
-            <ProjectDisplay projects={this.state.projects}/>
-          </Route> 
+            <Route 
+              exact={true} 
+              path='/skills'> 
+              <Skills 
+                content={this.state.pages.skills}
+                skills={this.state.skills}/>
+            </Route>
 
+            <Route 
+              exact={true}
+              path='/contact'>
+              <Contact content={this.state.pages.contact}/>
+            </Route>
+            
+            <Route 
+              exact={true} 
+              path='/portfolio'>
+              <Portfolio projects={this.state.projects}/>
+            </Route> 
+
+            <Route 
+              exact={true} 
+              path='/portfolio/project=:projectId'>
+              <ProjectDisplay projects={this.state.projects}/>
+            </Route>
+
+            <Route component={NotFound}/>
+          </Switch>
         </main>
 
         <div id="burger_toggler" className="hamburger" onClick={this.toggleBurger}>
