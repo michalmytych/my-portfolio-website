@@ -11,24 +11,26 @@ import { GithubIcon } from './assets';
 // Components
 import NotFound from './NotFound';
 
+// DatoCMS GraphQL requests
+import queries from '../queries';
+import requests from '../requests';
+
 
 class ProjectDisplay extends Component {
     state = {
-       project: {}
+       project: {},
+       image_url: ""
     };
 
-    componentDidMount() {
-        let projects = this.props.projects;
-        let projectId = parseInt(this.props.match.params.projectId);
-        let PROJECT = projects.filter(
-            function(proj) {
-                return (parseInt(proj.id) === projectId)
-            }
-        )
-        console.log("DEBUG: ", this.state.project);
-        this.setState({
-            project: PROJECT[0]
-        })
+    async componentDidMount() {
+        const id = parseInt(this.props.match.params.projectId);
+        let result = await requests.doQuery(queries.getProjectInstanceQuery(id));
+        if (result.data) {
+            this.setState({ 
+                project: result.data.project,
+                image_url: result.data.project.image.url
+            });
+        }
     }
 
     render() {
@@ -38,11 +40,16 @@ class ProjectDisplay extends Component {
                 {this.state.project ?
                 <div className="proj-container">
                     <div className="proj-illustr-wrap">
-                        <img 
-                            className="proj-img"
-                            src={this.state.project.image} 
-                            alt={"Illustracja projektu."}>
-                        </img>
+                    {
+                        this.state.image_url ?                    
+                    <img 
+                        className="proj-img"
+                        src={this.state.image_url} 
+                        alt={"Illustracja projektu."}>
+                    </img>
+                    :
+                    <p><em>Brak illustracji</em></p>
+                    }
                     </div>
                     <div className="proj-decrpt-wrap">
                         <h2>{this.state.project.title}</h2>
