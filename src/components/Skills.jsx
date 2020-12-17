@@ -17,7 +17,7 @@ class Skills extends Component {
                 <h1 className="top-const-margin">Moje umiejętności</h1>
 
                 <div className="gradient-line animate__animated animate__fadeIn"></div>
-                <p id="skills_container">
+                <div id="skills_container">
                     {
                         this.props.content
                         ?
@@ -25,21 +25,24 @@ class Skills extends Component {
                         :
                         <span style={{textAlign: 'center'}}>Brak treści.</span>
                     }
-                </p>
+                </div>
                 <ul className="skills-list">
                     {
                     this.props.skills
                     ?
                     this.props.skills.map(item => (
                             <li 
-                                className="skills-list-elem"
-                                key={item.id}>                                
+                                key={item.id}
+                                className="skills-list-elem">
                                 <img
+                                    key={item.id}
                                     className="skill-icon"
                                     src={item.icon.url} 
                                     alt="Ikona technologii.">
                                 </img>
-                                <h4 className="skill-label">{item.name}</h4>
+                                <h4 
+                                    key={item.id}
+                                    className="skill-label">{item.name}</h4>
                             </li>
                     ))
                     :

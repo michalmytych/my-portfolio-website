@@ -18,7 +18,7 @@ class About extends Component {
 
                 <div className="gradient-line animate__animated animate__fadeIn"></div>
 
-                <p id="about_container">
+                <div id="about_container">
                     {
                         this.props.content
                         ?
@@ -26,7 +26,7 @@ class About extends Component {
                         :
                         <span style={{textAlign: 'center'}}>Brak treści.</span>
                     }                    
-                </p>
+                </div>
             </section>
         )
     }

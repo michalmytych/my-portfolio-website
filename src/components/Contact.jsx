@@ -52,7 +52,7 @@ class Contact extends Component {
 
                     <div className="gradient-line animate__animated animate__fadeIn"></div>
 
-                    <p className="contact-sect-text">
+                    <div className="contact-sect-text">
                         {
                             this.props.content
                             ?
@@ -60,7 +60,7 @@ class Contact extends Component {
                             :
                             <span style={{textAlign: 'center'}}>Brak treści.</span>
                         }
-                    </p>
+                    </div>
                     <form className="contact-form">
                         <div>
                             <input 
