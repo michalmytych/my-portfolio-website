@@ -146,7 +146,7 @@ export default class App extends Component {
             <Route 
               exact={true} 
               path='/portfolio/project=:projectId'>
-              <ProjectDisplay projects={this.state.projects}/>
+              <ProjectDisplay/>
             </Route>
 
             <Route component={NotFound}/>
