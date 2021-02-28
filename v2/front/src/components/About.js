@@ -1,25 +1,29 @@
 import React from 'react'
-import ReactMarkdown from 'react-markdown'
+import { StructuredText } from "react-datocms"
 import { loader } from '../common'
 
 
 export default function About(props) {
+    console.log(props._skills)
+    
     return (
         <section>
             {props._content ?
-            <ReactMarkdown>
-                {props._content}
-            </ReactMarkdown>
+            <StructuredText data={props._content}/>                            
             : loader}
             {
-                props._skills && props._skills.length ?
-                <div>                    
-                    <ul>
-                        {props._skills.map(skill => (
-                            <li key={`skill_${skill.id}`}>{skill.name}</li>
-                        ))}
-                    </ul>
-                </div> : loader
+                props._skills ?
+                    props._skills.length ?
+                    <div>                    
+                        <ul>
+                            {props._skills.map(skill => (
+                                <li key={`skill_${skill.name}`}>
+                                    {skill.name} <small>{skill.count}</small>
+                                </li>
+                            ))}
+                        </ul>
+                    </div> : null
+                : loader
             }
         </section>
     )

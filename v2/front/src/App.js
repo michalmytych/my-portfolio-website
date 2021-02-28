@@ -7,11 +7,11 @@ import {
 } from "react-router-dom"
 import Header from './components/Header'
 import ProjectsList from './components/ProjectsList'
-import Footer from './components/Footer'
 import About from './components/About'
 import Contact from './components/Contact'
 import * as services from './services'
 import * as queries from './queries'
+import * as utils from './utils'
 
 
 class App extends React.Component {
@@ -29,11 +29,25 @@ class App extends React.Component {
   async fetchData(lang = this.state.lang) {
     let pages = await services.doQuery(queries.getPagesContent(lang))
     let projects = await services.doQuery(queries.getAllProjects(lang))
-    let skills = await services.doQuery(queries.getAllSkills)
+    let skills = utils.extractSkills(projects.data.allProjects)
+
+    /**
+     * Tu będzie algorytm który wyekstrachuje z projektów użyte w 
+     * nich technologie i zliczy jak często zostały użyte
+     * Output algorytmu będzie zapisany jako this.state.skills
+     * Następnie przekazany przez propsy do komponentu About
+     * W komponencie about technologie będą wyświetlane wedle
+     * częstotliwości użycia.
+     */
+
+    //console.log(pages)
+    //console.log(projects)
+    console.log(projects.data.allProjects)
+    console.log(skills)
 
     this.setState({
-      pages : pages,
-      projects : projects,
+      pages : pages.data.page,
+      projects : projects.data.allProjects,
       skills : skills
     })
   }
@@ -61,6 +75,7 @@ class App extends React.Component {
               <ProjectsList 
                 _content={this.state.pages.projects ?? null}
                 _projects={this.state.projects} 
+                _lang={this.state.lang}
               />
             </Route>
             <Route path="/about">
@@ -76,7 +91,6 @@ class App extends React.Component {
               <Redirect to="/portfolio" />
             </Route>
           </Switch>
-          <Footer _lang={this.state.lang}/>
         </Router>
       </div>
     )

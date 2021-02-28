@@ -1,4 +1,4 @@
-/*
+// import * as qr from './queries'
 
 export const doQuery = async (q) => {
     try {
@@ -16,17 +16,15 @@ export const doQuery = async (q) => {
     }
 }
 
-*/
 
-import * as qr from './queries'
-
+/*
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-export const doQuery = async (q) => {
+export const _doQuery = async (q) => {
     const delay = ms => new Promise(res => setTimeout(res, ms))
     await delay(getRandomInt(500, 2000))
 
@@ -50,6 +48,15 @@ export const doQuery = async (q) => {
         ]
     }
 
+    if (q === qr.getProjectInstance('PL', 0)) {
+        return ({ 
+            id : 6, 
+            title: "Jakis projekt 7", 
+            description : "Stałe tworzymy przy użyciu funkcji define(). Stałe nie mogą zostać zmienione podczas działania skryptu. Stałymi mogą być dane typów skalarnych.",
+            stack: "React, Javascript, Django"
+        })
+    }
+
     if (q === qr.getAllSkills) {
         return [
             { id : 0, name : "React"},
@@ -61,3 +68,4 @@ export const doQuery = async (q) => {
         ]
     }
 }
+*/

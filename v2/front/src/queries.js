@@ -1,9 +1,9 @@
 const getPagesContent = (lang) => (`
 {
-    page {
-        about
-        skills
-        contact
+    page(filter: {language: {eq: "${lang}"}}) {
+        projects { value }
+        about { value }
+        contact { value } 
     }
 }`)
 
@@ -12,40 +12,31 @@ const getAllProjects = (lang) => (`
     allProjects {
         id
         title
-        thumbnail {
-            url
-        }
-        stack
+        stack      	
+      	thumbnail { url, alt }
     }
 }`)
 
-const getProjectInstance = (lang, id) => (`
-{
-	project(filter: { id: { eq: "${id}" } }) {
-    id
-    title
-    description
-    image {
-      url
-    }
-    github
-    stack
-  }
-}`)
+const getProjectInstance = (lang, id) => {
+    let descriptionName = "descriptionPl"
+    if (lang === "ENG") { descriptionName = "descriptionEng" }
 
-const getAllSkills = `
-{
-    allSkills {
-        name
-        icon {
-            url
-        }
-    }
-}`
+    return (
+        `{
+            project(filter: {id: {eq: ${id}}}) {
+                id
+                title
+                description : ${descriptionName} { value }
+                stack
+                createdAt
+                image { url, alt }
+            }
+        }`
+    )
+}
 
 export { 
     getAllProjects, 
-    getAllSkills,
     getPagesContent,
     getProjectInstance
 }
