@@ -36,6 +36,9 @@ class Header extends React.Component {
                     name="lang" 
                     onChange={this.handleChange}
                     defaultValue={lang}>
+                    {lang==="ENG" ? <option selected disabled>Language</option>
+                    : <option selected disabled>Język</option> 
+                    }                    
                     <option value="PL">PL</option>
                     <option value="ENG">ENG</option>
                 </select>
