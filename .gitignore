@@ -72,3 +72,6 @@ debug.log
 *.woff2
 .env
 
+/.vscode
+/node_modules
+
