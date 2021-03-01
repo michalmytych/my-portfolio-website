@@ -31,7 +31,14 @@ const extractSkills = (projects) => {
      *          {name: "React", img: "url...", count: 1} lub jeśli jest, 
      *          to zwiększ jego atrybut count 
      *      3. zwróć skills
-     */     
+     *
+     * Tu będzie algorytm który wyekstrachuje z projektów użyte w 
+     * nich technologie i zliczy jak często zostały użyte
+     * Output algorytmu będzie zapisany jako this.state.skills
+     * Następnie przekazany przez propsy do komponentu About
+     * W komponencie about technologie będą wyświetlane wedle
+     * częstotliwości użycia.
+    */     
     
     let i = 0;
     if (!projects || !projects.length) return []    

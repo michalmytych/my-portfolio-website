@@ -26,22 +26,24 @@ class Header extends React.Component {
             <header>                        
                 <div>
                     <Link to="/portfolio">
-                        LOGO
+                        <div className="logo"></div>
                     </Link>
                 </div>
     
                 <NavBar _lang={this.props._lang}/>
     
-                <select                     
-                    name="lang" 
-                    onChange={this.handleChange}
-                    defaultValue={lang}>
-                    {lang==="ENG" ? <option selected disabled>Language</option>
-                    : <option selected disabled>Język</option> 
-                    }                    
-                    <option value="PL">PL</option>
-                    <option value="ENG">ENG</option>
-                </select>
+                <div className="lang-select-wrapper">
+                    <select                                         
+                        name="lang" 
+                        onChange={this.handleChange}
+                        defaultValue={lang}>
+                        {lang==="ENG" ? <option disabled>Language</option>
+                        : <option disabled>Język</option> 
+                        }                    
+                        <option value="PL">PL</option>
+                        <option value="ENG">ENG</option>
+                    </select>
+                </div>
             </header>
         )        
     }

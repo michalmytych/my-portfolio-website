@@ -15,7 +15,7 @@ export default function ProjectDetails(props) {
         .then(p => {
             if (!p.data || !p.data.project) console.error(`Project details: Bad data recieved`)
             setProject(p.data.project)
-        });
+        })
     })
     
     return (
@@ -26,7 +26,7 @@ export default function ProjectDetails(props) {
             </div>
             <div className="ProjectDetails">
                 {<div className="details-box">
-                    <div className="close-btn" onClick={props.hideDetailsView}>x</div>
+                    <div className="cross" onClick={props.hideDetailsView}></div>
                     {project ?
                         <Fragment>
                             {project.title ? <h2>{project.title}</h2> : null}                 

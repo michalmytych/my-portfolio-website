@@ -5,6 +5,7 @@ import {
   Route,
   Redirect
 } from "react-router-dom"
+import Home from './components/Home'
 import Header from './components/Header'
 import ProjectsList from './components/ProjectsList'
 import About from './components/About'
@@ -29,21 +30,12 @@ class App extends React.Component {
   async fetchData(lang = this.state.lang) {
     let pages = await services.doQuery(queries.getPagesContent(lang))
     let projects = await services.doQuery(queries.getAllProjects(lang))
-    let skills = utils.extractSkills(projects.data.allProjects)
-
-    /**
-     * Tu będzie algorytm który wyekstrachuje z projektów użyte w 
-     * nich technologie i zliczy jak często zostały użyte
-     * Output algorytmu będzie zapisany jako this.state.skills
-     * Następnie przekazany przez propsy do komponentu About
-     * W komponencie about technologie będą wyświetlane wedle
-     * częstotliwości użycia.
-     */
+    let skills = utils.extractSkills(projects.data.allProjects)    
 
     //console.log(pages)
     //console.log(projects)
-    console.log(projects.data.allProjects)
-    console.log(skills)
+    //console.log(projects.data.allProjects)
+    //console.log(skills)
 
     this.setState({
       pages : pages.data.page,
@@ -64,13 +56,17 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App">        
+
         <Router>        
           <Header
             _setLang={(l => this.setState({lang : l}))}
             _lang={this.state.lang}
           />
           <Switch>
+            <Route path="/home">
+              <Home />
+            </Route>            
             <Route path="/portfolio">
               <ProjectsList 
                 _content={this.state.pages.projects ?? null}
@@ -88,7 +84,7 @@ class App extends React.Component {
               <Contact _content={this.state.pages.contact ?? null}/>
             </Route>
             <Route exact path="/">
-              <Redirect to="/portfolio" />
+              <Redirect to="/home" />
             </Route>
           </Switch>
         </Router>
