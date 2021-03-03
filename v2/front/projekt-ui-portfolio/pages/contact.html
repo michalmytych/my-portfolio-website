@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../main.css">
+        <link rel="stylesheet" href="../animations.css">
+
+        <link rel="stylesheet" href="../contact.css">
+    </head>
+    <body>
+        <img class="space-bg" src="../assets/backgrounds/space3.jpg" alt="Page boyd background image"></img>
+        <img class="floating-bg-3" src="../assets/backgrounds/bgg.png" alt="Page boyd background image"></img>
+        <img class="floating-bg-1" src="../assets/backgrounds/clouds.png" alt="Page boyd background image"></img>
+        <img class="floating-bg-2" src="../assets/backgrounds/clouds2.png" alt="Page boyd background image"></img>   
+        
+        <!-- <a title="space png transparent 3" href="https://pngimage.net/space-png-transparent-3/">space png transparent 3</a> -->
+        <header>
+            <a class="logo-wrapper">
+                <img class="logo" src="../assets/icons/logo.png" alt="Logo icon"></img>
+            </a>        
+            <nav>
+                <a href="../index.html">home</a>
+                <a href="about.html">about</a>
+                <a href="portfolio.html">portfolio</a>
+                <a href="contact.html">contact</a>
+            </nav>
+            <a class="lang-btn-wrapper">
+                <img class="lang-btn" src="../assets/icons/lang_icon.svg" alt="Language change button"></img>
+            </a>
+        </header>
+
+        <section>
+            <h2>Contact</h2>
+            <p> 
+                If You want to contact me for some reason, feel free to send me an e-mail:
+            </p>
+                <div id="mail_line" class="mail-line">michal.mytych.webdev@gmail.com</div>
+                <div class="tooltip">
+                    <div id="_tooltoptext" class="tooltiptext">Click to copy</div>
+                </div>
+        </section>
+        
+        <script>
+            let mailLine = document.getElementById('mail_line');
+
+            async function handleSuccess() {
+                let toolTip = document.getElementById('_tooltoptext');
+                toolTip.innerText = "Copied to clipboard!";
+                await new Promise(r => setTimeout(r, 2000));
+            }
+
+            mailLine.addEventListener('click', e => {
+                navigator.clipboard.writeText(e.srcElement.innerText)
+                .then( () => handleSuccess() )
+            })            
+        </script>
+    </body>
+</html>

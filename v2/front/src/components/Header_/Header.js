@@ -26,13 +26,13 @@ class Header extends React.Component {
             <header>                        
                 <div>
                     <Link to="/portfolio">
-                        <div className="logo"></div>
+                        <div></div>
                     </Link>
                 </div>
     
                 <NavBar _lang={this.props._lang}/>
     
-                <div className="lang-select-wrapper">
+                <div>
                     <select                                         
                         name="lang" 
                         onChange={this.handleChange}

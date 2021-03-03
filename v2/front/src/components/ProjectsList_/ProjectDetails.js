@@ -1,9 +1,9 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import { StructuredText } from "react-datocms"
-import { loader } from '../common'
-import { formatISODateToLang } from '../utils'
-import * as services from '../services'
-import * as queries from '../queries'
+import { loader } from '../../common'
+import { formatISODateToLang } from '../../utils'
+import * as services from '../../services'
+import * as queries from '../../queries'
 
 
 export default function ProjectDetails(props) {    
@@ -21,12 +21,11 @@ export default function ProjectDetails(props) {
     return (
         <Fragment>
             <div 
-                className="above-bg"
                 onClick={props.hideDetailsView}>                
             </div>
-            <div className="ProjectDetails">
-                {<div className="details-box">
-                    <div className="cross" onClick={props.hideDetailsView}></div>
+            <div>
+                {<div>
+                    <div onClick={props.hideDetailsView}></div>
                     {project ?
                         <Fragment>
                             {project.title ? <h2>{project.title}</h2> : null}                 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { StructuredText } from "react-datocms"
-import { loader } from '../common'
+import { loader } from '../../common'
 
 
 export default function Contact(props) {

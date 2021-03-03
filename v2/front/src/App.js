@@ -5,11 +5,11 @@ import {
   Route,
   Redirect
 } from "react-router-dom"
-import Home from './components/Home'
-import Header from './components/Header'
-import ProjectsList from './components/ProjectsList'
-import About from './components/About'
-import Contact from './components/Contact'
+import Home from './components/Home_/Home'
+import Header from './components/Header_/Header'
+import ProjectsList from './components/ProjectsList_/ProjectsList'
+import About from './components/About_/About'
+import Contact from './components/Contact_/Contact'
 import * as services from './services'
 import * as queries from './queries'
 import * as utils from './utils'
@@ -31,11 +31,6 @@ class App extends React.Component {
     let pages = await services.doQuery(queries.getPagesContent(lang))
     let projects = await services.doQuery(queries.getAllProjects(lang))
     let skills = utils.extractSkills(projects.data.allProjects)    
-
-    //console.log(pages)
-    //console.log(projects)
-    //console.log(projects.data.allProjects)
-    //console.log(skills)
 
     this.setState({
       pages : pages.data.page,

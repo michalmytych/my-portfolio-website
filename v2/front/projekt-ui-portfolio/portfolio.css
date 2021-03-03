@@ -1,0 +1,224 @@
+/* Roboto font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,900&display=swap');
+
+/* Coolvetica font */
+@font-face {
+    font-family: 'Coolvetica';
+    src: url('assets/fonts/coolvetica-rg.woff') format('woff');
+}
+
+:root {
+    /* Dark colors */
+    --dark-primary: rgb(22, 21, 21);
+    --dark-sec: rgb(31, 31, 31);
+    --dark-thrd: rgb(44, 44, 44);
+    /* Primary colors */
+    --lead-violet: rgb(62, 17, 223);
+    --lead-violet: rgba(17, 80, 153, 0.774);
+    --lead-pink: rgb(218, 52, 252);
+    --lead-gray: rgb(105, 105, 105);
+    /* Text colors */
+    --base-text: rgb(255, 255, 255); 
+    --fade-text: rgb(173, 173, 173); 
+    --dimm-text: rgb(139, 139, 139); 
+    /* Lower opacity colors */
+    --low-opct-primary: rgba(12, 12, 12, 0.452);
+    /* Fonts sizes */
+    --main-header: 3.5rem;
+    --main-p: 1rem;
+    --regular-p: 0.75rem;
+    --nav-a: 1.1rem;
+    /* Others */
+    --lite-shdw: 1px 1px 2px rgba(0, 0, 0, 0.753);
+    /* Neu shadows colors */
+    --dim-bleu: rgb(15, 15, 15);
+    --lit-bleu: rgb(66, 66, 66);
+}
+
+
+
+
+.flex-container {
+    padding-top: 2rem;
+    box-sizing: border-box;
+    height: 88vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;    
+    justify-content: space-evenly;    
+}
+
+.portfolio-section{
+    padding: 0;
+    margin: 0 auto;
+    padding-top: 1rem;
+    width: 100%;    
+}
+
+.p-list-element{
+    width: 24%;
+    height: 260px;
+    object-position: center;    
+    object-fit: cover;
+    overflow: hidden;
+}
+
+
+.project-image {     
+    opacity: 0;   
+    position: relative;
+    top: -2vh;
+    cursor: pointer;
+    object-fit: cover;
+    object-position: center;
+    filter: saturate(0.1);    
+}
+
+.bg-content-cover{
+    z-index: 250;
+    opacity: 0;
+    position: absolute;
+    top: -10rem;
+    width: 150vw;
+    height: 150vh;
+    display: none;
+    background-color: var(--lead-violet);    
+}
+
+.ProjectDetails{
+    padding-left: 2.5rem;
+    z-index: 300;
+    position: absolute;
+    opacity: 0;
+    width: 60vw;
+    top: -5vh;
+    height: 120vw;
+    right: -65vw;    
+    color: white;
+    background-color: var(--dark-sec);
+}
+
+.ProjectDetails h3 {
+    letter-spacing: 3px;
+    margin-bottom: 0.9rem;
+    font-size: 3rem;
+    text-shadow: -4px 0 0 var(--lead-violet);
+}
+
+.header-underLine{
+    background-color: var(--lead-violet);
+    width: 35px;
+    height: 3px;
+    margin: 0.7rem 0 1.55rem 0;
+}
+
+.ProjectDetails p {
+    width: 65%;
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+    text-shadow: var(--lite-shdw);
+}
+
+.ProjectDetails ul {
+    width: 42%;
+    list-style: none;
+    margin: 0; padding: 0;
+}
+
+.stackList li {
+    font-family: 'Coolvetica';
+    font-size: 0.8rem;
+    cursor: default;
+    margin-right: 0.7rem;
+    margin-bottom: 0.9rem;
+    display: inline-block;
+    width: fit-content;
+    border-radius: 8px;
+    transition: 0.5s;
+    padding: 0.3rem 0.9rem 0.3rem 0.9rem;    
+    box-shadow: -2px -2px 4px var(--lit-bleu), 2px 2px 5px var(--dim-bleu)
+}
+
+.cross {
+    z-index: 500;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    position: relative;
+    box-sizing: border-box;
+    line-height: 30px;
+    display: inline-block;
+}
+
+.cross:before, .cross:after {
+  transform: rotate(-45deg);
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -5px;
+  margin-left: -25px;
+  display: block;
+  height: 4px;
+  width: 40px;
+  background-color: var(--base-text);
+  transition: all 0.25s ease-out;
+  animation: rollInCross 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+  
+.cross:after {
+  transform: rotate(-135deg);
+  animation: rollInCross2 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes rollInCross {
+  from {
+    transform: rotate(45deg);
+    background-color: white;
+  }
+  to {
+    background-color: var(--base-text);
+  }
+}
+
+@keyframes rollInCross2 {
+  from {
+    transform: rotate(135deg);
+    background-color: white;
+  }
+  to {
+    background-color: var(--base-text);
+  }
+}
+
+.cross:hover:before, .cross:hover:after {
+  transform: rotate(0deg);
+  height: 10px;
+  background-color: var(--lead-violet); 
+}
+
+@media only screen and (max-width: 1400px) {
+    .p-list-element{
+        width: 49%;
+        max-height: 300px;
+        margin: 4px;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .p-list-element{
+        max-width: 49%;
+        max-height: 230px;
+    }
+}
+
+@media only screen and (max-width: 920px) {
+    .p-list-element{
+        width: 100%;
+        height: 400px;
+        margin: 4px;
+    }
+}
+
+

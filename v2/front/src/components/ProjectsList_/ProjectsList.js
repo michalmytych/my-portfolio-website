@@ -1,7 +1,7 @@
 import React from 'react'
 import { StructuredText } from "react-datocms"
 import ProjectDetails from './ProjectDetails'
-import { loader } from '../common'
+import { loader } from '../../common'
 
 
 export default class ProjectsList extends React.Component {
@@ -32,7 +32,6 @@ export default class ProjectsList extends React.Component {
     render() {
         return (
             <section>
-
                 {this.state.displayProjectDetails ?
                 <ProjectDetails 
                     hideDetailsView={this._hideDetailsView}
@@ -47,23 +46,23 @@ export default class ProjectsList extends React.Component {
 
                 {this.props._projects && this.props._projects.length ? 
                     <div>                    
-                        <ul className="projects-list-ul">
+                        <ul>
                             {this.props._projects.map(project => (
                                 <li 
                                     id={project.id}
-                                    className="project-list-element"
                                     onClick={() => this.handleProjectClick(project.id)}
                                     key={`project_${project.id}`}>
-    
-    
-                                    
-                                    <h2>{project.title}</h2>
-                                    <p>
-                                        {project.stack && project.stack.length ?
-                                        project.stack.map(skill => ( skill.name + " " )) 
-                                        : null}
-                                    </p>                                   
-    
+                                    {project.thumbnail ?                                     
+                                    <div>
+                                        <img 
+                                            src={project.thumbnail.url} 
+                                            alt={project.thumbnail.alt}></img>                                    
+                                        <h3>{project.title}</h3>
+                                        <p>
+                                            {project.stack && project.stack.length ?
+                                            project.stack.map(skill => ( skill.name + " " )) : null}
+                                        </p>
+                                    </div> : null}
                                 </li>
                             ))}
                         </ul>

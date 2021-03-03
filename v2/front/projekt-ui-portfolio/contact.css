@@ -1,0 +1,90 @@
+:root {
+    /* Dark colors */
+    --dark-primary: rgb(17, 17, 17);
+    --dark-sec: rgb(31, 31, 31);
+    --dark-thrd: rgb(44, 44, 44);
+    /* Primary colors */
+    --lead-violet: rgb(2, 80, 170);
+    --lead-pink: rgb(218, 52, 252);
+    --lead-gray: rgb(105, 105, 105);
+    /* Text colors */
+    --base-text: rgb(255, 255, 255); 
+    --fade-text: rgb(173, 173, 173); 
+    --dimm-text: rgb(139, 139, 139); 
+    /* Lower opacity colors */
+    --low-opct-primary: rgba(12, 12, 12, 0.452);
+    /* Fonts sizes */
+    --main-header: 3.5rem;
+    --main-p: 1rem;
+    --regular-p: 0.75rem;
+    --nav-a: 1.1rem;
+    /* Others */
+    --lite-shdw: 1px 1px 2px rgba(0, 0, 0, 0.753);
+    /* Neu shadows colors */
+    --dim-bleu: rgb(15, 15, 15);
+    --lit-bleu: rgb(66, 66, 66);
+}
+
+
+section h2 {
+    margin-top: 0;
+}
+
+section p {
+    font-size: 1rem;
+}
+
+section p, .mail-line, .tooltiptext {
+    text-shadow: var(--lite-shdw);
+}
+
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    left: -1rem;
+  }
+  
+  .tooltip .tooltiptext {
+    font-size: 0.8rem;
+    visibility: hidden;
+    width: 140px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -75px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .mail-line{
+      cursor: pointer;
+      transition: 0.4s;
+}
+
+.mail-line:hover{
+    cursor: pointer;
+    color: rgb(191, 214, 255);
+}

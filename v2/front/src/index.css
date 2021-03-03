@@ -222,7 +222,7 @@ ul, li {
 .projects-list-ul{
   display: grid;
   grid-template-columns: 2fr 2fr 2fr;
-  grid-template-rows: 250px 250px 250px;
+  grid-template-rows: 320px 320px 320px;
   gap: 3px 3px;
   grid-template-areas:
     ". . ."
@@ -232,8 +232,8 @@ ul, li {
 
 .project-list-element{  
   padding: 0.5rem;
-  background-color: var(--base-bg);
   cursor: pointer;
+  overflow: hidden;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -408,4 +408,31 @@ nav a, a {
 @keyframes movePageBg2 {
   from { transform: rotate(-70deg);}
   to { transform: rotate(-73deg);}
+}
+
+.project-thumbnail{
+  position: relative;
+  object-position: center;
+  -o-object-fit: contain;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  transition: 0.7;
+  z-index: 15;
+}
+
+.project-short-info{
+  position: relative;
+  color: transparent;
+  background-color: transparent;
+  top: -240px;
+  background: transparent;  
+  z-index: 20;
+}
+
+.project-short-info:hover{
+  position: relative;
+  color: var(--base-bg);
+  background-color: var(--base-bg);
 }

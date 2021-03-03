@@ -1,11 +1,9 @@
 import React from 'react'
 import { StructuredText } from "react-datocms"
-import { loader } from '../common'
+import { loader } from '../../common'
 
 
-export default function About(props) {
-    console.log(props._skills)
-    
+export default function About(props) {    
     return (
         <section>
             {props._content ?
