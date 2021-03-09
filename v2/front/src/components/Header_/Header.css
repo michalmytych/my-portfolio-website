@@ -1,0 +1,54 @@
+@import '../../themes/colors.css';
+
+.logo {
+    width: 60px;
+    height: 40px;
+}
+
+.logo, header select, header nav {
+    margin: 0.8rem;
+}
+
+header {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem;
+}
+
+#logoWrapper, header nav, #selectWrapper{
+    flex-grow: 1;
+} 
+
+header select {
+    margin-top: 0.8rem;
+    width: 71px;
+    padding: 0.15rem;
+    border-radius: 5px;
+    color: var(--base-text);
+    text-shadow: var(--lite-shdw);
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: var(--lead-dimblue);
+    border-radius: 2px;
+    transition: 0.5s;
+}
+
+header select:active,
+header select:focus {
+    outline: none;
+}
+
+header select:hover {
+    background-color: var(--lead-blue);
+}
+
+select, option {
+    border: none;
+}
+
+select option {
+    background-color: var(--lead-dimblue);
+    cursor: pointer;
+    border: none;
+}

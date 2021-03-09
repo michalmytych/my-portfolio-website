@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import NavBar from './NavBar'
+import logo from '../../assets/icons/logo.png'
+import './Header.css'
 
 
 class Header extends React.Component {
@@ -24,15 +26,15 @@ class Header extends React.Component {
 
         return (
             <header>                        
-                <div>
-                    <Link to="/portfolio">
-                        <div></div>
+                <div id="logoWrapper">
+                    <Link to="/home">
+                        <img className="logo" src={logo} alt="Logo icon"></img>
                     </Link>
                 </div>
     
                 <NavBar _lang={this.props._lang}/>
     
-                <div>
+                <div id="selectWrapper">
                     <select                                         
                         name="lang" 
                         onChange={this.handleChange}

@@ -1,5 +1,7 @@
 import React from 'react'
-import { NavLink, withRouter } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom"
+import { transitRouteAnimation } from '../../common'
+import './NavBar.css'
 
 
 function NavBar(props) {
@@ -16,18 +18,42 @@ function NavBar(props) {
     
     return (
         <nav>
-            <NavLink to="/home" activeClassName="active-nav-link">
-                {startLinkText}
-            </NavLink>            
-            <NavLink to="/portfolio" activeClassName="active-nav-link">
-                {portfolioLinkText}
-            </NavLink> 
-            <NavLink to="/about" activeClassName="active-nav-link">
-                {aboutLinkText}
-            </NavLink>
-            <NavLink to="/contact" activeClassName="active-nav-link">
-                {contactLinkText}
-            </NavLink>
+            <div className="nav-link-wrapper">
+                <NavLink 
+                    to="/home" 
+                    onClick={transitRouteAnimation} 
+                    className="navLink" activeClassName="active-nav-link">
+                    {startLinkText}
+                </NavLink>            
+                <div className="widening-bottom-border"></div>
+            </div>
+            <div className="nav-link-wrapper">
+                <NavLink 
+                    to="/portfolio" 
+                    onClick={transitRouteAnimation}
+                    className="navLink" activeClassName="active-nav-link">
+                    {portfolioLinkText}
+                </NavLink> 
+                <div className="widening-bottom-border"></div>
+            </div>
+            <div className="nav-link-wrapper">
+                <NavLink 
+                    to="/about" 
+                    onClick={transitRouteAnimation}
+                    className="navLink" activeClassName="active-nav-link">
+                    {aboutLinkText}
+                </NavLink>
+                <div className="widening-bottom-border"></div>
+            </div>
+            <div className="nav-link-wrapper">
+                <NavLink 
+                    to="/contact" 
+                    onClick={transitRouteAnimation}
+                    className="navLink" activeClassName="active-nav-link">
+                    {contactLinkText}
+                </NavLink>
+                <div className="widening-bottom-border"></div>
+            </div>
         </nav>
     )
 }

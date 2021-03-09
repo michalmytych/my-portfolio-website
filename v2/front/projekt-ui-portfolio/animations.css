@@ -21,10 +21,6 @@
     filter: drop-shadow(15px 15px 100px white);
 }
 
-@keyframes floatXBackground {
-
-}
-
 .floating-bg-3{
     max-width: 130vw;    
     z-index: -1100;

@@ -1,0 +1,8 @@
+@import '../../themes/colors.css';
+
+
+#Contact {
+    margin: 0 auto;
+    padding-top: 1.5rem;
+    width: 85%;
+}

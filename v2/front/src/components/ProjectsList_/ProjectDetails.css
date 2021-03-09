@@ -1,0 +1,106 @@
+@import '../../themes/colors.css';
+
+.ProjectDetails{
+    z-index: 8000;    
+    position: absolute;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    /* opacity: 0; */
+    right: 0vw;
+    width: 120vw;
+    top: -1vh;
+    height: 90vw;
+    color: white;
+    display: flex;
+    background-color: var(--lead-dimblue);
+}
+
+.ProjectDetails h2 {
+    letter-spacing: 3px;
+    margin-bottom: 0.9rem;
+    margin-top: 1rem;
+    font-size: 3rem;
+    text-shadow: -6px 0 0 var(--lead-blue);
+}
+
+.ProjectDetails p {
+    width: 65%;
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+    text-shadow: var(--lite-shdw);
+}
+
+.ProjectDetails ul {
+    width: 42%;
+    list-style: none;
+    margin: 0; padding: 0;
+}
+
+.detailsWrapper {
+    position: absolute;
+    right: 0;
+    padding-left: 2.5rem;
+    padding-top: 3rem;
+    z-index: 9000;
+    height: 100%;
+    width: 60vw;
+    background-color: var(--dark-primary);
+}
+
+#cross {
+    z-index: 500;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    position: relative;
+    box-sizing: border-box;
+    line-height: 30px;
+    display: inline-block;
+}
+
+#cross:before, #cross:after {
+    transform: rotate(-45deg);
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -5px;
+    margin-left: -25px;
+    display: block;
+    height: 4px;
+    width: 40px;
+    background-color: white;
+    transition: all 0.25s ease-out;
+    animation: rollInCrossVertical 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+  
+#cross:after {
+    transform: rotate(-135deg);
+    animation: rollInCrossHorizontal 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes rollInCrossVertical {
+    from {
+        transform: rotate(45deg);
+        background-color: var(--lead-blue);
+    }
+    to {
+        background-color: white;
+    }
+}
+
+@keyframes rollInCrossHorizontal {
+    from {
+        transform: rotate(135deg);
+        background-color: var(--lead-blue);
+    }
+    to {
+        background-color: white;
+    }
+}
+
+#cross:hover:before, #cross:hover:after {
+    transform: rotate(0deg);
+    height: 10px;
+    background-color: var(--lead-blue); 
+}

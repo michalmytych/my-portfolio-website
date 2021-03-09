@@ -1,0 +1,77 @@
+@import '../../themes/colors.css';
+
+.App {
+    padding: 0; margin: 0 auto; box-sizing: border-box;
+    width: 100%;
+}
+
+#pageCoverLoader{
+    width: 130vw;
+    height: 130vh;
+    position: absolute;
+    left: -2vw;
+    top: -2vh;
+    z-index: 3000;
+    background-color: var(--dark-sec);
+}
+
+.cover-loader-spinner{
+    opacity: 1;
+    z-index: 3100;
+    position: absolute;
+    top: 38vh;
+    left: 47vw;
+    width: 200px;
+    height: 200px;
+}
+
+#_pageBackground,
+#_smallerBackgr,
+#_biggerBackgr  { 
+    width: 110vw; 
+    height: 110vh; 
+    position: absolute; 
+    top: -5vh; 
+    left: -5vw; 
+    z-index: -1000;
+}
+
+#_pageBackground { 
+    animation: waveBackground 5s infinite alternate;
+}
+
+@keyframes waveBackground {
+    from { transform: scale(1) rotate(0deg); left: -2vw; }
+    to { transform: scale(1.06) rotate(5deg); left: -1vw;}
+}
+
+#_smallerBackgr { 
+    transform: scale(2.3); 
+}
+
+#_biggerBackgr { 
+    transform: scale(2.3); 
+}
+
+#_biggerBackgr,
+#_smallerBackgr {
+    filter: invert(0.7);
+}
+
+#_biggerBackgr {
+    animation: waveSmallerBackground 5s infinite alternate;
+}
+
+#_smallerBackgr {
+    animation: waveBiggerBackground 5s infinite alternate;
+}
+
+@keyframes waveSmallerBackground {
+    from { left: -50px; }
+    to { left: -80px; }
+}
+
+@keyframes waveBiggerBackground {
+    from { left: -50px; }
+    to { left: -80px; }
+}

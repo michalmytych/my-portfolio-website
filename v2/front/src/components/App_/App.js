@@ -5,17 +5,42 @@ import {
   Route,
   Redirect
 } from "react-router-dom"
-import Home from './components/Home_/Home'
-import Header from './components/Header_/Header'
-import ProjectsList from './components/ProjectsList_/ProjectsList'
-import About from './components/About_/About'
-import Contact from './components/Contact_/Contact'
-import * as services from './services'
-import * as queries from './queries'
-import * as utils from './utils'
+import { useSpring, animated } from 'react-spring'
+import Home from '../Home_/Home'
+import Header from '../Header_/Header'
+import ProjectsList from '../ProjectsList_/ProjectsList'
+import About from '../About_/About'
+import Contact from '../Contact_/Contact'
+import loader from  '../../assets/icons/loader.svg'
+import pageBg from  '../../assets/backgrounds/space3.jpg'
+import cloudsB from '../../assets/backgrounds/clouds2.png'
+import cloudsA from '../../assets/backgrounds/clouds.png'
+import * as services from '../../services'
+import * as queries from '../../queries'
+import * as utils from '../../utils'
+import './App.css'
 
 
-class App extends React.Component {
+
+const PageLoadingCover = () => {
+  const a_slideOutCover= useSpring({
+    top: '-140vh', 
+    from: { top: '-2vh' }, 
+    delay: 1000,
+    config: {duration: 800} }
+  )
+
+  return (
+    <animated.div style={a_slideOutCover} id="pageCoverLoader">
+      <img className="cover-loader-spinner" 
+        src={loader} 
+        alt="Loading icon"
+        id="pageLoaderSpinner"></img>
+    </animated.div>
+  )
+}
+
+class App extends React.Component {  
   constructor() {
     super();
     this.state = {
@@ -51,7 +76,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">        
+      <div className="App">     
+        <img src={pageBg} id="_pageBackground"></img>
+        <img src={cloudsA} id="_biggerBackgr"></img>
+        <img src={cloudsB} id="_smallerBackgr"></img>
+
+        <PageLoadingCover /> 
 
         <Router>        
           <Header

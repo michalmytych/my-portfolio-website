@@ -1,0 +1,55 @@
+@import '../../themes/colors.css';
+
+nav {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+nav a {
+    font-size: 1.12rem;    
+    text-align: center;
+    font-weight: lighter;
+    letter-spacing: 2px;        
+}
+
+.nav-link-wrapper {    
+    max-width: 12rem;
+    padding: 0 2.8vw 1.4rem 2.8vw;
+    margin: 0 1.2vw 0 1.2vw;
+    cursor: pointer;
+}
+
+.widening-bottom-border {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    background-color: var(--lead-dimblue);  
+    transform: rotateY(90deg);
+    height: 3px;
+    position: relative;
+    top: -10px;
+}
+
+.nav-link-wrapper:hover > .widening-bottom-border {        
+    background-color: var(--lead-dimblue);  
+    animation: rotateNavLinkBorder 0.35s linear;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;   /* not implemented yet */
+    -ms-animation-fill-mode: forwards;
+    animation-fill-mode: forwards; 
+}
+
+@keyframes rotateNavLinkBorder {
+    from { 
+        background-color: var(--lead-dimblue);
+        transform: rotateY(90deg); 
+    }
+    to { 
+        background-color: var(--lead-blue);
+        transform: rotateY(180deg); 
+    }
+}
