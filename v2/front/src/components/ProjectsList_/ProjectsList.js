@@ -2,7 +2,11 @@ import React from 'react'
 import { useSpring, animated } from 'react-spring'
 import { StructuredText } from "react-datocms"
 import ProjectDetails from './ProjectDetails'
-import { limitTextLenght, loader } from '../../common'
+import { 
+    limitTextLenght, 
+    fadeInProjectDetails, 
+    loader 
+} from '../../common'
 import './ProjectsList.css'
 
 
@@ -31,10 +35,12 @@ const ProjectCard = (props) => {
                     <div className="project-info">
                         <h3>{limitTextLenght(props._project.title, 16)}</h3>
                         <div className="header-underLine"></div>
-                        <p className="stackList">
+                        <div className="stackList">
                             {props._project.stack && props._project.stack.length ?
-                            props._project.stack.map(skill => ( skill.name + " " )) : null}
-                        </p>
+                            props._project.stack.map(skill => ( 
+                                <div className="stackItem">{skill.name + " "}</div>
+                            )) : null}
+                        </div>
                     </div>                             
                 </div> : null}
             </li>          
@@ -51,10 +57,12 @@ export default class ProjectsList extends React.Component {
             displayedProjectId    : null
         }
         this.handleProjectClick = this.handleProjectClick.bind(this);
-        this._hideDetailsView = this._hideDetailsView.bind(this);
+        this.hideDetailsView = this.hideDetailsView.bind(this);
     }
 
-    _hideDetailsView() {
+    async hideDetailsView() {
+        fadeInProjectDetails(true)
+        await new Promise(r => setTimeout(r, 1100));
         this.setState({
             displayProjectDetails : false,
             displayedProjectId    : null
@@ -73,8 +81,8 @@ export default class ProjectsList extends React.Component {
             <section>
                 {this.state.displayProjectDetails ?
                 <ProjectDetails 
-                    hideDetailsView={this._hideDetailsView}
-                    projectId={this.state.displayedProjectId}
+                    _hideDetailsView={this.hideDetailsView}
+                    _projectId={this.state.displayedProjectId}
                     _lang={this.props._lang}
                 /> 
                 : null}                

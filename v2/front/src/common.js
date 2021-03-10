@@ -26,3 +26,32 @@ export const transitRouteAnimation = () => {
         easing: 'swing'
     })
 }
+
+export const fadeInProjectDetails = (reverse = false) => {    
+    let detailsWrapperOpacity = "+=1"
+    let detailsWrapperRight = "0vw"
+    let projectDetailsOpacity = "+=1"
+
+    if (reverse) {
+        detailsWrapperOpacity = "-=1"
+        detailsWrapperRight = "-60vw"
+        projectDetailsOpacity = "-=1"
+    }
+
+    $('.ProjectDetails')    
+    .animate({
+        opacity: projectDetailsOpacity,
+    }, {
+        duration: 1000,
+        easing: 'swing'
+    })   
+    
+    $('.detailsWrapper')
+    .animate({
+        opacity: detailsWrapperOpacity,
+        right: detailsWrapperRight,
+    }, {
+        duration: 1000,
+        easing: 'swing'
+    })  
+}
