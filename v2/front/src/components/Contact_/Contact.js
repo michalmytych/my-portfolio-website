@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { StructuredText } from "react-datocms"
 import { useSpring, animated } from 'react-spring'
 import { loader } from '../../common'
@@ -20,6 +20,9 @@ export default function Contact(props) {
         config: { duration: 1500 }}
     )
 
+    useEffect(() => {
+        document.title = `HttpMike Dev - Contact`
+    });
     
     return (
         <section id="Contact">

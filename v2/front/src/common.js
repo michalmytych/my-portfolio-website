@@ -34,7 +34,7 @@ export const fadeInProjectDetails = (reverse = false) => {
 
     if (reverse) {
         detailsWrapperOpacity = "-=1"
-        detailsWrapperRight = "-60vw"
+        detailsWrapperRight = "-30vw"
         projectDetailsOpacity = "-=1"
     }
 
@@ -54,4 +54,23 @@ export const fadeInProjectDetails = (reverse = false) => {
         duration: 1000,
         easing: 'swing'
     })  
+}
+
+export const fadeInImagesGallery = (reverse = false) => {    
+    let galleryOpacityMove = "+=1"
+    let galleryOpacityLeftMove = "30.7vw"
+
+    if (reverse) {
+        galleryOpacityMove = "-=1"
+        galleryOpacityLeftMove = "-=5.7vw"
+    }
+
+    $('.images-gallery')    
+    .animate({
+        opacity: galleryOpacityMove,
+        left: galleryOpacityLeftMove,
+    }, {
+        duration: 1000,
+        easing: 'swing'
+    })    
 }

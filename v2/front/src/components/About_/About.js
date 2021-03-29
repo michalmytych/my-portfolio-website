@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { StructuredText } from "react-datocms"
 import { useSpring, animated } from 'react-spring'
 import { loader } from '../../common'
@@ -27,6 +27,23 @@ export default function About(props) {
         config: { duration: 1500 }
     })
 
+    useEffect(() => {
+        document.title = `HttpMike Dev - About`
+
+        const __skillsList = document.getElementById("__skillsList")
+        let i = 0
+        if (!__skillsList) return
+        let len = __skillsList.childElementCount
+        let _len = len
+        for (i=0;i<len;i++) {
+            let d = document.querySelector(`#__skillsList li:nth-child(${i+1})`)
+            if (!d) return
+            _len=_len-1
+            d.style.transform = `scale(${0.5+(_len)*0.1})`
+            d.style.backgroundColor = `rgb(${25*i+1}, ${25*i+15}, ${25*i+49})`
+        }
+    });
+
     return (
         <section id="About">
             <animated.div style={a_fadeInAboutHeader}>
@@ -46,7 +63,7 @@ export default function About(props) {
                         props._skills.length ?
                         <animated.div style={a_fadeInAboutSkills}>
                             <div id="skillsList">                    
-                                <ul>
+                                <ul id="__skillsList">
                                     {props._skills.map(skill => (
                                         <li className="skill"
                                             key={`skill_${skill.name}`}>

@@ -4,6 +4,7 @@ import { StructuredText } from "react-datocms"
 import ProjectDetails from './ProjectDetails'
 import { 
     limitTextLenght, 
+    fadeInImagesGallery,
     fadeInProjectDetails, 
     loader 
 } from '../../common'
@@ -62,6 +63,7 @@ export default class ProjectsList extends React.Component {
 
     async hideDetailsView() {
         fadeInProjectDetails(true)
+        fadeInImagesGallery(true)
         await new Promise(r => setTimeout(r, 1100));
         this.setState({
             displayProjectDetails : false,
@@ -75,6 +77,10 @@ export default class ProjectsList extends React.Component {
             displayedProjectId    : id
         })
     }
+
+    componentDidMount() {
+        document.title = 'HttpMike Dev - Portfolio'
+    }
     
     render() {
         return (
@@ -86,10 +92,6 @@ export default class ProjectsList extends React.Component {
                     _lang={this.props._lang}
                 /> 
                 : null}                
-
-                {this.props._content ?                                    
-                <div className="struct-text"><StructuredText data={this.props._content}/></div>
-                : loader }            
 
                 {
                     this.props._projects && this.props._projects.length ? 

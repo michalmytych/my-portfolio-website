@@ -1,6 +1,10 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import { StructuredText } from "react-datocms"
-import { fadeInProjectDetails, loader } from '../../common'
+import { 
+    fadeInImagesGallery,
+    fadeInProjectDetails, 
+    loader 
+} from '../../common'
 import { formatISODateToLang } from '../../utils'
 import * as services from '../../services'
 import * as queries from '../../queries'
@@ -12,6 +16,7 @@ export default function ProjectDetails(props) {
     
     useEffect(() => {
         fadeInProjectDetails(false)
+        fadeInImagesGallery(false)
         if (!props._projectId || project) return
         services.doQuery(queries.getProjectInstance(props._lang, props._projectId))
         .then(res => {
@@ -24,6 +29,16 @@ export default function ProjectDetails(props) {
         <div
             onClick={props._hideDetailsView} 
             className="ProjectDetails">            
+            
+            <div className="images-gallery">
+                {project && project.image ?
+                    <img
+                        className="project-image"
+                        alt={project && project.image.alt} 
+                        src={project && project.image.url}></img>
+                : loader}                          
+            </div>
+
             <div 
                 className="detailsWrapper">
                 <div 
@@ -31,27 +46,26 @@ export default function ProjectDetails(props) {
                     onClick={props._hideDetailsView}>
                 </div>    
                 <div 
-                    onClick={props._hideDetailsView}>                
+                    onClick={props._hideDetailsView}>
                 </div>
                 <div>
                     {<div>
                         {project ?
                             <Fragment>
-                                {project.title ? <h2>{project.title}</h2> : null}     
+                                {project && project.title ? <h2>{project && project.title}</h2> : null}     
                                 <div className="header-underLine"></div>            
-                                {project.createdAt ? 
-                                <em>{formatISODateToLang(project.createdAt, props._lang)}</em> : null}
-                                {project.description ? 
+                                {project && project.createdAt ? 
+                                <em>{formatISODateToLang(project && project.createdAt, props._lang)}</em> : null}
+                                {project && project.description ? 
                                     <StructuredText data={project.description}/>
                                  : null}
                                 <p>
-                                    {project.stack && project.stack.length ?
-                                    project.stack.map(skill => ( skill.name + " " )) 
+                                    {project && project.stack && project.stack.length ?
+                                    project.stack.map(skill => ( 
+                                        <div className="skill-block">{skill.name}</div>
+                                    )) 
                                     : null}
-                                </p>
-                                {project.image ?
-                                <img alt={project.image.alt} src={project.image.url}></img>
-                                : loader}                            
+                                </p>                                
                             </Fragment>
                         : loader}
                     </div>}            

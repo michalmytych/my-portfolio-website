@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { useSpring, animated } from 'react-spring'
 import { transitRouteAnimation } from '../../common'
@@ -26,6 +26,10 @@ function Home() {
         delay: 1500,
         config: { duration: 1700 }}
     )
+
+    useEffect(() => {
+        document.title = 'HttpMike Dev - Home'  
+    })
 
     return (
         <div id="Home">

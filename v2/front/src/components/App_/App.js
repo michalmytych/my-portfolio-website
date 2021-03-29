@@ -64,7 +64,7 @@ class App extends React.Component {
     })
   }
 
-  async componentDidMount() {
+  async componentDidMount() {    
     await this.fetchData(this.state.lang)
   }
 
@@ -94,7 +94,6 @@ class App extends React.Component {
             </Route>            
             <Route path="/portfolio">
               <ProjectsList 
-                _content={this.state.pages.projects ?? null}
                 _projects={this.state.projects} 
                 _lang={this.state.lang}
               />

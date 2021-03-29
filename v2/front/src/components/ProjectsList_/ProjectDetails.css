@@ -12,7 +12,12 @@
     height: 90vw;
     color: white;
     display: flex;
-    background-color: var(--lead-dimblue);
+    /*background-color: var(--lead-dimblue);*/
+    background-color: var(--dark-primary);
+
+    background: -moz-linear-gradient(27deg, var(--lead-dimblue) 0%, var(--dark-primary) 59%);
+    background: -webkit-linear-gradient(27deg, var(--lead-dimblue) 0%, var(--dark-primary) 59%);
+    background: linear-gradient(27deg, var(--lead-dimblue) 0%, var(--dark-primary) 59%);
 }
 
 .ProjectDetails h2 {
@@ -39,13 +44,13 @@
 .detailsWrapper {
     opacity: 0;
     position: absolute;
-    right: -60vw;
+    right: -30vw;
     padding-left: 2.5rem;
-    padding-top: 3rem;
+    padding-top: 10vh;
     z-index: 9000;
     height: 100%;
-    width: 60vw;
-    background-color: var(--dark-primary);
+    width: 51vw;
+    /*background-color: var(--dark-primary);*/
 }
 
 #cross {
@@ -78,6 +83,24 @@
 #cross:after {
     transform: rotate(-135deg);
     animation: rollInCrossHorizontal 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.images-gallery{
+    position: relative;
+    text-align: center;
+    top: 1vh;
+    padding-top: 15.6vh;
+    /*left: 21.7vw;*/
+    left: -21.7vw;
+    width: 30%;    
+    height: 100vh;
+    /* background-color: blueviolet;    */
+}
+
+.project-image{
+    width: 670px;
+    height: 380px;
+    box-shadow: 10px 10px 100px rgba(0, 0, 0, 0.65);
 }
 
 @keyframes rollInCrossVertical {
