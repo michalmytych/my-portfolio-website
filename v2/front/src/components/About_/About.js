@@ -40,7 +40,8 @@ export default function About(props) {
             if (!d) return
             _len=_len-1
             d.style.transform = `scale(${0.5+(_len)*0.1})`
-            d.style.backgroundColor = `rgb(${25*i+1}, ${25*i+15}, ${25*i+49})`
+            d.style.backgroundColor = `rgba(0, 0, 0, ${1-0.18*i})`
+            //d.style.backgroundColor = `rgb(${25*i+1}, ${25*i+15}, ${25*i+49})`
         }
     });
 
