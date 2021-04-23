@@ -1,0 +1,73 @@
+@media (max-width: 1600px) {
+    h1 {
+        font-size: 4rem;     
+    }
+}
+
+@media (max-width: 1200px) {
+    h1 {
+        font-size: 4.2rem;     
+    }
+
+    #homeParag{
+        opacity: 0;
+        font-size: 1rem;
+        padding: 2rem 0 3rem 0;  
+    }
+}
+
+@media (max-width: 900px) {
+    #myVideo {
+        display: none;
+    }
+
+    h1 {
+        font-size: 2.8rem;     
+    }
+
+    body {
+        background-image: url('../assets/mobile_bg.jpg');
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-position-x: -8rem;
+    }
+
+    #homeParag{
+        opacity: 0;
+        font-size: 1rem;
+        padding: 1rem 0 1.6rem 0;   
+    }
+
+    .nav-dots-list{
+        left: 3.2rem;
+        width: 1rem;        
+    }
+
+
+    #portfolio {      
+      top: -1rem;
+      left: 90rem;
+      width: 120vw;
+      min-height: 110vh;
+      padding: 5rem 5rem 10rem 6rem;
+    }
+
+    #projectsList{        
+        width: 86%;
+    }
+
+    h3 {
+        font-size: 2.7rem;
+        width: 76%;
+    }
+    
+    .project-description{
+        width: 76%;
+    }
+
+    .tech-list{
+        display: flex;
+        flex-wrap: wrap;
+        width: 76%;
+      }
+}
