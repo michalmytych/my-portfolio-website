@@ -276,7 +276,7 @@ ul, li {
   z-index: 2100;
   bottom: 0;
   width: 110vw;
-  height: 25rem;
+  height: 160px;
   background: rgb(0,0,0);
   background: linear-gradient(0deg, rgba(0,0,0,1) 18%, rgba(0,0,0,0.6867121848739496) 59%, rgba(0,0,0,0.3841911764705882) 84%, rgba(0,0,0,0) 100%);
 }
@@ -285,25 +285,27 @@ ul, li {
   position: absolute;
   z-index: 2300;
   background-color: rgba(80, 80, 80, 0.5);
+  border-radius: 5px;
   width: 768px;
-  height: 480px;
+  height: 460px;
   top: 13%;
   right: 32%;
+  padding: 0;
 
-  -webkit-animation: ImageLoadingPlaceholder 0.8s ease infinite alternate;
-  -moz-animation: ImageLoadingPlaceholder 0.8s ease infinite alternate;
-  animation: ImageLoadingPlaceholder 0.8s ease infinite alternate;
+  -webkit-animation: LoadingPlaceholder 0.8s ease infinite alternate;
+  -moz-animation: LoadingPlaceholder 0.8s ease infinite alternate;
+  animation: LoadingPlaceholder 0.8s ease infinite alternate;
 }
 
-@-webkit-keyframes ImageLoadingPlaceholder {
+@-webkit-keyframes LoadingPlaceholder {
   0%   { background-color: rgba(93, 98, 114, 0.5); }
   100% { background-color: rgba(39, 41, 48, 0.5); }
 }
-@-moz-keyframes ImageLoadingPlaceholder {
+@-moz-keyframes LoadingPlaceholder {
   0%   { background-color: rgba(93, 98, 114, 0.5); }
   100% { background-color: rgba(39, 41, 48, 0.5); }
 }
-@keyframes ImageLoadingPlaceholder {
+@keyframes LoadingPlaceholder {
   0%   { background-color: rgba(93, 98, 114, 0.5); }
   100% { background-color: rgba(39, 41, 48, 0.5); }
 }
@@ -316,12 +318,44 @@ ul, li {
 
 #skewedPortfolioBackground {
   opacity: 0;
-  background-color: rgb(38, 33, 49);
+  background-image: url('../assets/skewed_portfolio_bg_01.jpg');
   position: absolute;
-  z-index: 2000;
-  width: 70vw;
-  height: 180vh;
-  top: -6rem;
-  right: 18rem;
-  transform: rotate(30deg);
+  z-index: 900;
+  width: 80vw;
+  height: 120vh;
+  top: -5rem;
+  right: -5rem;
+}
+
+#skewedVideoGradientCover{
+  background: rgb(0,0,0);
+  background: linear-gradient(79deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9640231092436975) 39%, rgba(0,0,0,0.8267682072829132) 58%, rgba(0,0,0,0.6587009803921569) 74%, rgba(0,0,0,0) 100%);
+  position: absolute;
+  z-index: 1000;
+  width: 40vw;
+  height: 115vh;
+  top: -5rem;
+  left: 54vh;
+  transform: rotate(10deg);
+}
+
+h1:empty, h3:empty {
+  width: 600px;
+  height: 70px;
+  border-radius: 5px;
+  -webkit-animation: LoadingPlaceholder 0.8s ease infinite alternate;
+  -moz-animation: LoadingPlaceholder 0.8s ease infinite alternate;
+  animation: LoadingPlaceholder 0.8s ease infinite alternate;
+}
+
+h3:empty {
+  width:400px;
+  height: 60px;
+  border-radius: 5px;
+}
+
+p:empty {
+  width:300px;
+  height: 100px;
+  border-radius: 5px;
 }

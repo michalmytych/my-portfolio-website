@@ -42,19 +42,28 @@ export function revealElementWithDelay(args)
 }
 
 
-/*
-export function revealElementWithDelay(id, _delay = 1500)
-{
-    document.getElementById(id).animate([
-            {  marginLeft: '8rem', opacity: 0   },
-            {  marginLeft: '7rem', opacity: 0.1 },
-            {  marginLeft: '3rem', opacity: 0.4 },
-            {  marginLeft: '1rem', opacity: 0.6 },
-            {  marginLeft:      0, opacity: 1   }
-        ], {        
-        fill: 'forwards',
-        delay: _delay,
-        duration: 600
-    })
+export function roundedToFixed(_float, _digits = 1){
+    /**
+     *      "If you use Math.round(5.01) you will get 5 instead of 5.0.
+     *      If you use toFixed you run into rounding issues.
+     *      If you want the best of both worlds combine the two"
+     *                     SO user Jasper de Vries , Oct 2 '12 at 21:04 :D
+     */
+    var rounded = Math.pow(10, _digits);
+    return (Math.round(_float * rounded) / rounded).toFixed(_digits);
 }
-*/
+
+
+/** 
+ * @param function callback 
+ */
+export function onScrollStop(callback) {
+    var isScrolling;
+
+    window.addEventListener('scroll', function ( event ) {
+        window.clearTimeout( isScrolling );
+        isScrolling = setTimeout(function() {
+            callback()
+        }, 66);
+    }, false);
+}
